@@ -72,10 +72,10 @@ The following text shows an example of the generation of the full word mask.
 |**`BERT-wwm-large-qa, Chinese`** |**中文问答/<br/>通用数据<sup>[1][3]</sup>** |**[TensorFlow1](https://drive.google.com/drive/folders/11JvzcJvuhxYbVSNWUutC57-zP2Y1gGV5?usp=sharing)** <br/>**[TensorFlow2](https://drive.google.com/drive/folders/10COzeCg9AUCLWzIyPhkEC6Mpm2Od2OnP?usp=sharing)** <br/>**[PyTorch](https://drive.google.com/drive/folders/1-2U4oaOpbb5nlUOUBMdurxyoO7qMBBxf?usp=sharing)** |**[TensorFlow1,密码:tfxl]()** <br/>**[TensorFlow2,密码:tfxl]()** <br/>**[PyTorch,密码:toxl]()** |
 |**`BERT-wwm-large-qa, Chinese`** |**中文问答/<br/>通用数据<sup>[1][4]</sup>** |**[TensorFlow1](https://drive.google.com/drive/folders/11U8Pd9hRaT3MEe7J6V05RC8_QMfPPccc?usp=sharing)** <br/>**[TensorFlow2](https://drive.google.com/drive/folders/10X8fxslV0Oo5jEbkK9tNGzmqpKT86xT0?usp=sharing)** <br/>**[PyTorch](https://drive.google.com/drive/folders/11Pd5sy2jRePz5AVlOdImRYNDSbCtwtAS?usp=sharing)** |**[TensorFlow1,密码:tfxl]()** <br/>**[TensorFlow2,密码:tfxl]()** <br/>**[PyTorch,密码:toxl]()** |
 
-> [1] general data includes: question and answer data, the total size is 12.5mb, the number of records is 10000, and the number of words is 72000.
-> [2] one round of training, maximum string length 512, batch = 2
-> [3] one round of training, maximum string length 128, batch = 8
-> [4] Max string length 128, batch = 8, after one round of training; max string length 256, batch = 4, another round of training.
+> [1] general data includes: question and answer data, the total size is 12.5mb, the number of records is 10000, and the number of words is 72000.  
+> [2] one round of training, maximum string length 512, batch = 2  
+> [3] one round of training, maximum string length 128, batch = 8  
+> [4] Max string length 128, batch = 8, after one round of training; max string length 256, batch = 4, another round of training.  
 
 
 ### PyTorch/Tensorflow Versions
@@ -86,7 +86,7 @@ Pytorch version, TF1 and TF2 version are provided.
 
 The Chinese mainland recommends the use of Baidu cloud download points. Overseas users recommend using Google download points, and the `BERT-wwm-base-qa` model file size is about**454M** and**1.3G**. Take tensorflow version of `bert WwM base QA, Chinese` as an example. After downloading, unzip the zip file to get the following results:
 ```
-tf_chinese_BERT_tiny_L-12_H-768_A-12.zip
+tf_chinese_BERT_base_L-12_H-768_A-12.zip
     |- checkpoint                                           # 存盘点信息
     |- BERT_tiny_chinese.ckpt.data-00000-of-00001          # 模型权重
     |- BERT_tiny_chinese.ckpt.index                        # 模型index信息
@@ -97,7 +97,7 @@ tf_chinese_BERT_tiny_L-12_H-768_A-12.zip
 TensorFlow2版本为：
 
 ```
-tf2_chinese_BERT_tiny_L-12_H-768_A-12.zip
+tf2_chinese_BERT_base_L-12_H-768_A-12.zip
     |- tf_model.h5           # 模型权重
     |- config.json           # 模型参数
     |- vocab.txt             # 分词词表
@@ -106,7 +106,7 @@ tf2_chinese_BERT_tiny_L-12_H-768_A-12.zip
 Pytorch版本为：
 
 ```
-chinese_BERT_tiny_L-12_H-768_A-12.zip
+chinese_BERT_base_L-12_H-768_A-12.zip
     |- pytorch_model.bin     # 模型权重
     |- config.json           # 模型参数
     |- training_args.bin     # 模型训练信息
@@ -284,9 +284,7 @@ Another recognized factor: reducing the batch size will significantly reduce the
 A: Congratulations.
 
 **Q: How long did the training take and what equipment did it use?**
-A: The training is completed in Google TPU V3 Version (128G HBM). It takes about 1.5 days to train bet WwM, while it takes several weeks to train bet WwM ext (more data needs to be iterated more fully).
-It should be noted that in the pre training phase, we use 'Lamb optimizer' ([tensorflow version implementation]（ https://github.com/ymcui/LAMB_ Optimizer_ TF)）。 The optimizer has good support for large batch.
-When fine-tuning downstream tasks, we use the default "Adam weight decision optimizer" of bet.
+A: The training is completed in Google TPU V3 Version (128G HBM). It takes about 4 hours to train bert WwM base and 8 hours to train bert WwM large.
 
 **Q: Who is Ernie?**
 A: The Ernie model in this project refers to the [Ernie] model proposed by Baidu company（ https://github.com/PaddlePaddle/LARK/tree/develop/ERNIE ）Instead of [Ernie] published by Tsinghua University in ACL 2019（ https://github.com/thunlp/ERNIE )。
@@ -305,8 +303,7 @@ A: Frankly
 **Q: Briefly evaluate these models**
 A: Each has its own emphasis and merits.
 The research and development of Chinese natural language processing needs the joint efforts of many parties.
-**Q: What do you call the next pre training model?**
-A: Zoe: Zero show embeddings from language model
+
 **Q: More details about the 'Roberta WwM ext' model?**
 A: We integrate the advantages of Roberta and Bert WwM to make a natural combination of them.
 The differences from the previous models in this catalog are as follows:

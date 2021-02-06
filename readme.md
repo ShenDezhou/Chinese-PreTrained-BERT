@@ -76,10 +76,10 @@
 | **`BERT-wwm-large-qa, Chinese`** | **中文问答/<br/>通用数据<sup>[1][3]</sup>** | **[TensorFlow1](https://drive.google.com/drive/folders/11JvzcJvuhxYbVSNWUutC57-zP2Y1gGV5?usp=sharing)** <br/>**[TensorFlow2](https://drive.google.com/drive/folders/10COzeCg9AUCLWzIyPhkEC6Mpm2Od2OnP?usp=sharing)** <br/>**[PyTorch](https://drive.google.com/drive/folders/1-2U4oaOpbb5nlUOUBMdurxyoO7qMBBxf?usp=sharing)** | **[TensorFlow1,密码:tfxl]()** <br/>**[TensorFlow2,密码:tfxl]()** <br/>**[PyTorch,密码:toxl]()** |
 | **`BERT-wwm-large-qa, Chinese`** | **中文问答/<br/>通用数据<sup>[1][4]</sup>** | **[TensorFlow1](https://drive.google.com/drive/folders/11U8Pd9hRaT3MEe7J6V05RC8_QMfPPccc?usp=sharing)** <br/>**[TensorFlow2](https://drive.google.com/drive/folders/10X8fxslV0Oo5jEbkK9tNGzmqpKT86xT0?usp=sharing)** <br/>**[PyTorch](https://drive.google.com/drive/folders/11Pd5sy2jRePz5AVlOdImRYNDSbCtwtAS?usp=sharing)** | **[TensorFlow1,密码:tfxl]()** <br/>**[TensorFlow2,密码:tfxl]()** <br/>**[PyTorch,密码:toxl]()** |
 
-> [1] 通用数据包括：问答等数据，总大小12.5MB，记录数1万，字数7.2万。
-> [2] 训练1轮，最大串长512，batch=2.
-> [3] 训练1轮，最大串长128，batch=8.
-> [4] 最大串长128，batch=8，训练1轮后；用最大串长256，batch=4，再训练一轮。
+> [1] 通用数据包括：问答等数据，总大小12.5MB，记录数1万，字数7.2万。  
+> [2] 训练1轮，最大串长512，batch=2.  
+> [3] 训练1轮，最大串长128，batch=8.  
+> [4] 最大串长128，batch=8，训练1轮后；用最大串长256，batch=4，再训练一轮。  
 
 ### PyTorch/Tensorflow版本
 
@@ -90,7 +90,7 @@
 中国大陆境内建议使用百度云下载点，境外用户建议使用谷歌下载点，`BERT-wwm-base-qa`模型文件大小约**454M**和**1.3G**。 以TensorFlow版`BERT-wwm-base-qa, Chinese`为例，下载完毕后对zip文件进行解压得到：
 
 ```
-tf_chinese_BERT_tiny_L-12_H-768_A-12.zip
+tf_chinese_BERT_base_L-12_H-768_A-12.zip
     |- checkpoint                                           # 存盘点信息
     |- BERT_tiny_chinese.ckpt.data-00000-of-00001          # 模型权重
     |- BERT_tiny_chinese.ckpt.index                        # 模型index信息
@@ -101,7 +101,7 @@ tf_chinese_BERT_tiny_L-12_H-768_A-12.zip
 TensorFlow2版本为：
 
 ```
-tf2_chinese_BERT_tiny_L-12_H-768_A-12.zip
+tf2_chinese_BERT_base_L-12_H-768_A-12.zip
     |- tf_model.h5           # 模型权重
     |- config.json           # 模型参数
     |- vocab.txt             # 分词词表
@@ -110,7 +110,7 @@ tf2_chinese_BERT_tiny_L-12_H-768_A-12.zip
 Pytorch版本为：
 
 ```
-chinese_BERT_tiny_L-12_H-768_A-12.zip
+chinese_BERT_base_L-12_H-768_A-12.zip
     |- pytorch_model.bin     # 模型权重
     |- config.json           # 模型参数
     |- training_args.bin     # 模型训练信息
@@ -283,9 +283,8 @@ A: 在下游任务中，我们采用了最简单的模型。比如分类任务�
 A: 恭喜你。
 
 **Q: 训练花了多长时间，在什么设备上训练的？**  
-A: 训练是在谷歌TPU v3版本（128G HBM）完成的，训练BERT-wwm花费约1.5天，BERT-wwm-ext则需要数周时间（使用了更多数据需要迭代更充分）。
-需要注意的是，预训练阶段我们使用的是`LAMB Optimizer`（[TensorFlow版本实现](https://github.com/ymcui/LAMB_Optimizer_TF)）。该优化器对大的batch有良好的支持。
-在微调下游任务时，我们采用的是BERT默认的`AdamWeightDecayOptimizer`。
+A: 训练是在谷歌TPU v3版本（128G HBM）完成的，训练BERT-wwm-base花费约4小时，BERT-wwm-large则花费约8小时。
+
 
 **Q: ERNIE是谁？**  
 A: 本项目中的ERNIE模型特指百度公司提出的[ERNIE](https://github.com/PaddlePaddle/LARK/tree/develop/ERNIE)，而非清华大学在ACL 2019上发表的[ERNIE](https://github.com/thunlp/ERNIE)。
@@ -304,9 +303,6 @@ A: 很坦率的说：
 **Q: 简单评价一下这几个模型**  
 A: 各有侧重，各有千秋。
 中文自然语言处理的研究发展需要多方共同努力。
-
-**Q: 你预测下一个预训练模型叫什么？**  
-A: 可能叫ZOE吧，ZOE: Zero-shOt Embeddings from language model
 
 **Q: 更多关于`RoBERTa-wwm-ext`模型的细节？**  
 A: 我们集成了RoBERTa和BERT-wwm的优点，对两者进行了一个自然的结合。
