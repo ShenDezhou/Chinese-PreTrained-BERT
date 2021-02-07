@@ -116,8 +116,13 @@ chinese_BERT_base_L-12_H-768_A-12.zip
 ###Fast loading
 Relying on [hugging face transformers 3.1.0](https://github.com/huggingface/transformers) The above models can be easily called.
 ```
-tokenizer =  AutoTokenizer.from_ pretrained("MODEL_ NAME")
-model =  AutoModel.from_ pretrained("MODEL_ NAME")
+tokenizer =  AutoTokenizer.from_ pretrained("MODEL_NAME")
+model =  AutoModel.from_ pretrained("MODEL_NAME")
+
+or
+
+tokenizer = BertTokenizer.from_pretrained("MODEL_NAME")
+model = BertModel.from_pretrained("MODEL_NAME")
 ```
 
 Where ` model_ The corresponding list of name ` is as follows:

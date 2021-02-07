@@ -123,6 +123,11 @@ chinese_BERT_base_L-12_H-768_A-12.zip
 ```
 tokenizer = AutoTokenizer.from_pretrained("MODEL_NAME")
 model = AutoModel.from_pretrained("MODEL_NAME")
+
+或
+
+tokenizer = BertTokenizer.from_pretrained("MODEL_NAME")
+model = BertModel.from_pretrained("MODEL_NAME")
 ```
 其中`MODEL_NAME`对应列表如下：  
 
