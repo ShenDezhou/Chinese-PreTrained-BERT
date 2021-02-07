@@ -68,11 +68,11 @@
 
 ## 模型下载
 * **`BERT-wwm-base-qa`**：12-layer, 768-hidden, 12-heads, 110M parameters()
-* **`BERT-wwm-large-qa`**：24-layer, 768-hidden, 16-heads, 330M parameters()
+* **`BERT-wwm-large-qa`**：24-layer, 1024-hidden, 16-heads, 330M parameters()
 
 | 模型简称 | 语料 | Google下载 | 百度云下载[待传] |
 | :------- | :--------- | :---------: | :---------: |
-| **`BERT-wwm-base-qa, Chinese`** | **中文问答/<br/>通用数据<sup>[1][2]</sup>** | **[TensorFlow1](https://drive.google.com/drive/folders/11B-bU8I2BUvtel4100GkqmeprWPvkI8R?usp=sharing)** <br/>**[TensorFlow2](https://drive.google.com/drive/folders/1-yx_t3u5gAuxlrmVQnkv8msKlduX3HOh?usp=sharing)** <br/>**[PyTorch](https://drive.google.com/drive/folders/1-wnz-EC9znkZz-DW40Mhisr4PaejtctC?usp=sharing)** | **[TensorFlow1,密码:tfxl]()** <br/>**[TensorFlow2,密码:tfxl]()** <br/>**[PyTorch,密码:toxl]()** |
+| **`BERT-wwm-base-qa, Chinese`** | **中文问答/<br/>通用数据<sup>[1][2]</sup>** | **[TensorFlow1](https://drive.google.com/drive/folders/11B-bU8I2BUvtel4100GkqmeprWPvkI8R?usp=sharing)** <br/>**[TensorFlow2](https://drive.google.com/drive/folders/1-yx_t3u5gAuxlrmVQnkv8msKlduX3HOh?usp=sharing)** <br/>**[PyTorch](https://drive.google.com/drive/folders/1-wnz-EC9znkZz-DW40Mhisr4PaejtctC?usp=sharing)** | **[TensorFlow1,密码:tfxl](https://pan.baidu.com/s/1wmUDAdKA-J8Y9AWWpPlSJA)** <br/>**[TensorFlow2,密码:tfxl](https://pan.baidu.com/s/1YEwNNltuuuXNOJ77vTgyGQ)** <br/>**[PyTorch,密码:toxl](https://pan.baidu.com/s/1uyZpuFD1h-xT8vkyMvblTA)** |
 | **`BERT-wwm-large-qa, Chinese`** | **中文问答/<br/>通用数据<sup>[1][3]</sup>** | **[TensorFlow1](https://drive.google.com/drive/folders/11JvzcJvuhxYbVSNWUutC57-zP2Y1gGV5?usp=sharing)** <br/>**[TensorFlow2](https://drive.google.com/drive/folders/10COzeCg9AUCLWzIyPhkEC6Mpm2Od2OnP?usp=sharing)** <br/>**[PyTorch](https://drive.google.com/drive/folders/1-2U4oaOpbb5nlUOUBMdurxyoO7qMBBxf?usp=sharing)** | **[TensorFlow1,密码:tfxl]()** <br/>**[TensorFlow2,密码:tfxl]()** <br/>**[PyTorch,密码:toxl]()** |
 | **`BERT-wwm-large-qa, Chinese`** | **中文问答/<br/>通用数据<sup>[1][4]</sup>** | **[TensorFlow1](https://drive.google.com/drive/folders/11U8Pd9hRaT3MEe7J6V05RC8_QMfPPccc?usp=sharing)** <br/>**[TensorFlow2](https://drive.google.com/drive/folders/10X8fxslV0Oo5jEbkK9tNGzmqpKT86xT0?usp=sharing)** <br/>**[PyTorch](https://drive.google.com/drive/folders/11Pd5sy2jRePz5AVlOdImRYNDSbCtwtAS?usp=sharing)** | **[TensorFlow1,密码:tfxl]()** <br/>**[TensorFlow2,密码:tfxl]()** <br/>**[PyTorch,密码:toxl]()** |
 
