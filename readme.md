@@ -167,7 +167,7 @@ tokenizer.train(files=paths, vocab_size=21_128, min_frequency=0, special_tokens=
 
 
 ### 生成词表算法
-进一步地，对于一个英文词（中文分词同理），按照WP规则，可分成多个高频片段。示例代码如下：
+下列方法并非tokenizers的实现，作为意思表达。进一步地，对于一个英文词（中文分词同理），按照WP规则，可分成多个高频片段。示例代码如下：
 ```
 def tokenize(self, text):
   
