@@ -165,6 +165,56 @@ tokenizer.train(files=paths, vocab_size=21_128, min_frequency=0, special_tokens=
                 ])
 ```
 
+
+### 生成词表算法
+进一步地，对于一个英文词（中文分词同理），按照WP规则，可分成多个高频片段。示例代码如下：
+```
+def tokenize(self, text):
+  
+  # 把一段文字切分成word piece。这其实是贪心的最大正向匹配算法。
+  # 比如：
+  # input = "unaffable"
+  # output = ["un", "##aff", "##able"]
+ 
+  
+  text = convert_to_unicode(text)
+  
+  output_tokens = []
+  for token in whitespace_tokenize(text):
+	  chars = list(token)
+	  if len(chars) > self.max_input_chars_per_word:
+		  output_tokens.append(self.unk_token)
+		  continue
+	  
+	  is_bad = False
+	  start = 0
+	  sub_tokens = []
+	  while start < len(chars):
+		  end = len(chars)
+		  cur_substr = None
+		  while start < end:
+			  substr = "".join(chars[start:end])
+			  if start > 0:
+				  substr = "##" + substr
+			  if substr in self.vocab:
+				  cur_substr = substr
+				  break
+			  end -= 1
+		  if cur_substr is None:
+			  is_bad = True
+			  break
+		  sub_tokens.append(cur_substr)
+		  start = end
+	  
+	  if is_bad:
+		  output_tokens.append(self.unk_token)
+	  else:
+		  output_tokens.extend(sub_tokens)
+  return output_tokens
+```
+
+
+
 ### 预训练
 获得以上数据后，截止2021年2月6日，使用BERT-wwm-ext的WordPiece词表（模型），(未来将使用基于通用数据的WordPiece模型)，正式开始预训练BERT。
 之所以叫`BERT-wwm-base-qa`是因为仅相比`BERT-wwm-ext`，其余参数没有变动，主要因为计算设备受限。

@@ -140,7 +140,7 @@ The following takes the 'BERT tiny' model as an example to explain the details o
 
 ### Generating Thesaurus
 According to the official tutorial steps of best, you need to first use [word piece](https://pypi.org/project/tokenizers/) Generate a vocabulary.
-Wordpiece is a subword tagging algorithm for Bert, distilbert and Electra. The algorithm is summarized in Japanese and Korean speech search (Schuster et al., 2012), which is very similar to BPE. Wordpiece first initializes the vocabulary to contain each character in the training data, and gradually learns a given number of merge rules. Unlike BPE, wordpiece does not select the most frequent symbol pairs, but the ones that maximize the possibility of adding training data to the vocabulary.
+Wordpiece is a subword tagging algorithm for Bert, Distilbert and Electra. The algorithm is summarized in Japanese and Korean speech search (Schuster et al., 2012), which is very similar to BPE. Wordpiece first initializes the vocabulary to contain each character in the training data, and gradually learns a given number of merge rules. Unlike BPE, wordpiece does not select the most frequent symbol pairs, but the ones that maximize the possibility of adding training data to the vocabulary.
 So what does that mean? Referring to the previous example, maximizing the possibility of training data is equivalent to finding a pair of symbols, and the probability of which is divided by the probability of its first symbol and then divided by the probability of its second symbol is the largest of all pairs of symbols. E. Only when the probability of "UG" divided by "U" and "g" is greater than any other sign pair, "U" followed by "g" will be merged. Intuitively, wordpiece is slightly different from BPE in that it evaluates what it loses by merging two symbols to make sure it's worth it.
 In this project, we use the vocabulary size of 21128, and the rest of the parameters use the default configuration in the official example.
 ```
@@ -159,6 +159,53 @@ tokenizer.train(files=paths, vocab_size=21_128, min_frequency=0, special_tokens=
 
 ```
 
+### Algorithm of generating vocabulary
+Furthermore, according to WP rules, an English word can be divided into several high-frequency segments. The sample code is as follows:
+
+```
+def tokenize(self, text):
+  
+  # Cut a paragraph into word piece. This is actually the greedy maximum forward matching algorithm.
+  # eg：
+  # input = "unaffable"
+  # output = ["un", "##aff", "##able"]
+ 
+  
+  text = convert_to_unicode(text)
+  
+  output_tokens = []
+  for token in whitespace_tokenize(text):
+	  chars = list(token)
+	  if len(chars) > self.max_input_chars_per_word:
+		  output_tokens.append(self.unk_token)
+		  continue
+	  
+	  is_bad = False
+	  start = 0
+	  sub_tokens = []
+	  while start < len(chars):
+		  end = len(chars)
+		  cur_substr = None
+		  while start < end:
+			  substr = "".join(chars[start:end])
+			  if start > 0:
+				  substr = "##" + substr
+			  if substr in self.vocab:
+				  cur_substr = substr
+				  break
+			  end -= 1
+		  if cur_substr is None:
+			  is_bad = True
+			  break
+		  sub_tokens.append(cur_substr)
+		  start = end
+	  
+	  if is_bad:
+		  output_tokens.append(self.unk_token)
+	  else:
+		  output_tokens.extend(sub_tokens)
+  return output_tokens
+```
 
 ### Pre training
 After obtaining the above data, as of February 6, 2021, using the wordpiece vocabulary (model) of bet WwM ext (the wordpiece model based on general data will be used in the future), the pre training of bet will be officially started.
