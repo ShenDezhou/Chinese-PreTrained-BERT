@@ -80,6 +80,7 @@
 > [2] 训练1轮，最大串长512，batch=2.  
 > [3] 训练1轮，最大串长128，batch=8.  
 > [4] 最大串长128，batch=8，训练1轮后；用最大串长256，batch=4，再训练一轮。  
+> [5] 加载pytorch和tf2模型时，如transformers加载报xla错误，请自行修改config.json中`xla_device`的值，如在gpu上微调需要设为false，如在tpu上微调，则需要设为true。
 
 ### PyTorch/Tensorflow版本
 

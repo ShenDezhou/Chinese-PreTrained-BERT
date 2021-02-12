@@ -76,7 +76,7 @@ The following text shows an example of the generation of the full word mask.
 > [2] one round of training, maximum string length 512, batch = 2  
 > [3] one round of training, maximum string length 128, batch = 8  
 > [4] Max string length 128, batch = 8, after one round of training; max string length 256, batch = 4, another round of training.  
-
+> [5] to load the pytorch and tf2 models, such as the transformers load report xla error, modify the value of `xla_device` in config.json yourself, such as fine-tuning on the gpu needs to be set to false, if fine-tuning on tpu, you need to set to true.
 
 ### PyTorch/Tensorflow Versions
 
