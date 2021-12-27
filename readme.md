@@ -67,20 +67,29 @@
 
 
 ## 模型下载
-* **`BERT-wwm-base-qa`**：12-layer, 768-hidden, 12-heads, 110M parameters()
-* **`BERT-wwm-large-qa`**：24-layer, 1024-hidden, 16-heads, 330M parameters()
+| 数据集                             | owner  | model             | 语言 | 层数 | 参数量 |
+|------------------------------------|--------|-------------------|------|------|--------|
+| 中学阅读理解                       | D-Shen | [bert_3L_cn](http://transformers.science/rct/checkpoints/bert_3L_cn.tgz)        | cn   | 3    | 27.5M  |
+| 中学阅读理解                       | D-Shen | [bert_6L_cn](http://transformers.science/rct/checkpoints/bert_6L_cn.tgz)        | cn   | 6    | 55M    |
+| 中文维基                           | Google | [bert_12L_cn-alpha](http://transformers.science/rct/checkpoints/bert_12L_cn-alpha.tgz) | cn   | 12   | 110M   |
+| 中文维基                           | Google | [bert_12L_cn-beta](http://transformers.science/rct/checkpoints/bert_12L_cn-beta.tgz)  | cn   | 12   | 110M   |
+| 中文维基百科，其他百科、新闻、问答 | D-Shen | [bert-3L_cn-alpha](http://transformers.science/rct/checkpoints/bert-3L_cn-alpha.tgz)  | cn   | 3    | 27.5M  |
+| 中学阅读理解                       | D-Shen | [bert-3L_cn-beta](http://transformers.science/rct/checkpoints/bert-3L_cn-beta.tgz)   | cn   | 3    | 27.5M  |
+| 中文维基百科，其他百科、新闻、问答 | D-Shen | [bert_12L_cn](http://transformers.science/rct/checkpoints/bert_12L_cn.tgz)       | cn   | 12   | 110M   |
+| 中文维基百科，其他百科、新闻、问答 | D-Shen | [bert_24L_cn-alpha](http://transformers.science/rct/checkpoints/bert_24L_cn-alpha.tgz) | cn   | 24   | 330M   |
+| QA                                 | D-Shen | [bert_24L_cn-beta](http://transformers.science/rct/checkpoints/bert_24L_cn-beta.tgz)  | cn   | 24   | 330M   |
+| QA                                 | D-Shen | [bert_24L_cn-gamma](http://transformers.science/rct/checkpoints/bert_24L_cn-gamma.tgz) | cn   | 24   | 330M   |
+| QA                                 | D-Shen | [xlnet_6L_cn](http://transformers.science/rct/checkpoints/xlnet_6L_cn.tgz)       | cn   | 6    | 53.5M  |
+| 中文维基百科，其他百科、新闻、问答 | D-Shen | [xlnet_12L_cn](http://transformers.science/rct/checkpoints/xlnet_12L_cn.tgz)      | cn   | 12   | 117M   |
+| 中文维基百科，其他百科、新闻、问答 | D-Shen | [xlnet_24L_cn](http://transformers.science/rct/checkpoints/xlnet_24L_cn.tgz)      | cn   | 24   | 209M   |
 
-| 模型简称 | 语料 | Google下载 | 百度云下载 |
-| :------- | :--------- | :---------: | :---------: |
-| **`BERT-wwm-base-qa, Chinese`** | **中文问答/<br/>通用数据<sup>[1][2]</sup>** | **[TensorFlow1](https://drive.google.com/drive/folders/11B-bU8I2BUvtel4100GkqmeprWPvkI8R?usp=sharing)** <br/>**[TensorFlow2](https://drive.google.com/drive/folders/1-yx_t3u5gAuxlrmVQnkv8msKlduX3HOh?usp=sharing)** <br/>**[PyTorch](https://drive.google.com/drive/folders/1-wnz-EC9znkZz-DW40Mhisr4PaejtctC?usp=sharing)** | **[TensorFlow1,密码:tfxl](https://pan.baidu.com/s/1wmUDAdKA-J8Y9AWWpPlSJA)** <br/>**[TensorFlow2,密码:tfxl](https://pan.baidu.com/s/1YEwNNltuuuXNOJ77vTgyGQ)** <br/>**[PyTorch,密码:toxl](https://pan.baidu.com/s/1uyZpuFD1h-xT8vkyMvblTA)** |
-| **`BERT-wwm-large-qa, Chinese`** | **中文问答/<br/>通用数据<sup>[1][3]</sup>** | **[TensorFlow1](https://drive.google.com/drive/folders/11JvzcJvuhxYbVSNWUutC57-zP2Y1gGV5?usp=sharing)** <br/>**[TensorFlow2](https://drive.google.com/drive/folders/10COzeCg9AUCLWzIyPhkEC6Mpm2Od2OnP?usp=sharing)** <br/>**[PyTorch](https://drive.google.com/drive/folders/1-2U4oaOpbb5nlUOUBMdurxyoO7qMBBxf?usp=sharing)** | [待传,暂用谷歌云] |
-| **`BERT-wwm-large-qa, Chinese`** | **中文问答/<br/>通用数据<sup>[1][4]</sup>** | **[TensorFlow1](https://drive.google.com/drive/folders/11U8Pd9hRaT3MEe7J6V05RC8_QMfPPccc?usp=sharing)** <br/>**[TensorFlow2](https://drive.google.com/drive/folders/10X8fxslV0Oo5jEbkK9tNGzmqpKT86xT0?usp=sharing)** <br/>**[PyTorch](https://drive.google.com/drive/folders/11Pd5sy2jRePz5AVlOdImRYNDSbCtwtAS?usp=sharing)** | **[TensorFlow1,密码:tfbt](https://pan.baidu.com/s/1r-8nkgOmfhqjEDvNIc77aw)** <br/>**[TensorFlow2,密码:tfbt](https://pan.baidu.com/s/19sVmuENaPQNV_G4iL_Qzjg)** <br/>**[PyTorch,密码:tobt](https://pan.baidu.com/s/1oNDbIh7OmvIGXYLE74epgA)** |
 
+> **`base`**：12-layer, 768-hidden, 12-heads, 110M parameters()
+> **`large`**：24-layer, 1024-hidden, 16-heads, 330M parameters()
+> 
 > [1] 通用数据包括：问答等数据，总大小12.5MB，记录数1万，字数7.2万。  
-> [2] 训练1轮，最大串长512，batch=2.  
-> [3] 训练1轮，最大串长128，batch=8.  
-> [4] 最大串长128，batch=8，训练1轮后；用最大串长256，batch=4，再训练一轮。  
-> [5] 加载pytorch和tf2模型时，如transformers加载报xla错误，请自行修改config.json中`xla_device`的值，如在gpu上微调需要设为false，如在tpu上微调，则需要设为true。
+> [2] 加载pytorch和tf2模型时，如transformers加载报xla错误，请自行修改config.json中`xla_device`的值，如在gpu上微调需要设为false，如在tpu上微调，则需要设为true。
+
 
 ### PyTorch/Tensorflow版本
 
