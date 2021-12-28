@@ -27,7 +27,7 @@ See more published resources：https://github.com/
 <summary>Historical news</summary>
 2021/2/6The models published in this directory can be accessed to [hugging face transformers](https://github.com/huggingface/transformers) in the future, view [quick load](#quick load)
 
-2021/2/6 `BERT-wwm-base-qa`It can be downloaded. View [Model Download](#model download)
+2021/2/6 `bert_12L_cn`It can be downloaded. View [Model Download](#model download)
 
 2021/2/6 provides a Chinese 'BERT tiny' model trained on a small-scale general corpus (12.5mb) [TBD]. Check [Model Download] (# model download)
 </details>
@@ -87,11 +87,11 @@ The following text shows an example of the generation of the full word mask.
 
 ### PyTorch/Tensorflow Versions
 
-Pytorch version, TF1 and TF2 version are provided.
+Pytorch version is provided.
 
 ### instructions
 
-The Chinese mainland recommends the use of Baidu cloud download points. Overseas users recommend using Google download points, and the `BERT-wwm-base-qa` model file size is about**454M** and**1.3G**. Take tensorflow version of `bert WwM base QA, Chinese` as an example. After downloading, unzip the zip file to get the following results:
+The Chinese mainland recommends the use of Baidu cloud download points. Overseas users recommend using Google download points, and the `bert_12L_cn` model file size is about**454M** and**1.3G**. Take tensorflow version of `bert WwM base QA, Chinese` as an example. After downloading, unzip the zip file to get the following results:
 ```
 tf_chinese_BERT_base_L-12_H-768_A-12.zip
     |- checkpoint                                           # 存盘点信息
@@ -131,15 +131,6 @@ or
 tokenizer = BertTokenizer.from_pretrained("MODEL_NAME")
 model = BertModel.from_pretrained("MODEL_NAME")
 ```
-
-Where ` model_ The corresponding list of name ` is as follows:
-|Model name | model_ NAME |
-| - | - |
-| BERT-wwm-base-qa-Chinese | /chinese-BERT-wwm-base-qa<sup>[1]</sup>|
-| BERT-wwm-large-qa-Chinese | /chinese-BERT-wwm-large-qa<sup>[1]</sup>|
-
->[1] to upload, you need to download manually.
-
 
 
 ## Baseline system effect

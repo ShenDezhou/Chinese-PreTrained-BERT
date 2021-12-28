@@ -27,9 +27,9 @@
 <summary>历史新闻</summary>
 2021/2/6 本目录发布的模型未来可接入[Huggingface-Transformers](https://github.com/huggingface/transformers)，查看[快速加载](#快速加载)
 
-2021/2/6 `BERT-wwm-base-qa`已可下载，查看[模型下载](#模型下载)
+2021/2/6 `bert_12L_cn`已可下载，查看[模型下载](#模型下载)
 
-2021/2/6 提供了在小规模通用语料（12.5MB）上训练的中文`BERT-wwm-base-qa`模型，查看[模型下载](#模型下载)
+2021/2/6 提供了在小规模通用语料（12.5MB）上训练的中文`bert_12L_cn`模型，查看[模型下载](#模型下载)
 </details>
 
 ## 内容导引
@@ -93,11 +93,11 @@
 
 ### PyTorch/Tensorflow版本
 
-提供PyTorch版本，TF1和TF2版本。
+提供PyTorch版本。
 
 ### 使用说明
 
-中国大陆境内建议使用百度云下载点，境外用户建议使用谷歌下载点，`BERT-wwm-base-qa`模型文件大小约**454M**和**1.3G**。 以TensorFlow版`BERT-wwm-base-qa, Chinese`为例，下载完毕后对zip文件进行解压得到：
+中国大陆境内建议使用百度云下载点，境外用户建议使用谷歌下载点，`bert_12L_cn`模型文件大小约**454M**和**1.3G**。 以TensorFlow版`bert_12L_cn, Chinese`为例，下载完毕后对zip文件进行解压得到：
 
 ```
 tf_chinese_BERT_base_L-12_H-768_A-12.zip
@@ -139,24 +139,17 @@ model = AutoModel.from_pretrained("MODEL_NAME")
 tokenizer = BertTokenizer.from_pretrained("MODEL_NAME")
 model = BertModel.from_pretrained("MODEL_NAME")
 ```
-其中`MODEL_NAME`对应列表如下：  
-
-| 模型名 | MODEL_NAME |
-| - | - |
-| BERT-wwm-base-qa-Chinese | /chinese-BERT-wwm-base-qa<sup>[1]</sup>|
-| BERT-wwm-large-qa-Chinese | /chinese-BERT-wwm-large-qa<sup>[1]</sup>|
-> [1] 待上传,暂时需要手动下载。
 
 
 
 ## 基线系统效果
-为了对比基线效果，我们在以下几个中文数据集上进行了测试。对比了中文BERT-wwm-ext、BERT-base以及本项目的BERT-wwm-base-qa。
+为了对比基线效果，我们在以下几个中文数据集上进行了测试。对比了中文BERT-wwm-ext、BERT-base以及本项目的bert_12L_cn。
 时间及精力有限，并未能覆盖更多类别的任务，请大家自行尝试。
 
 
 
 ## 预训练细节
-以下以`BERT-wwm-base-qa`模型为例，对预训练细节进行说明。
+以下以`bert_12L_cn`模型为例，对预训练细节进行说明。
 
 ### 生成词表
 按照BERT官方教程步骤，首先需要使用[Word Piece](https://pypi.org/project/tokenizers/) 生成词表。
@@ -232,7 +225,7 @@ def tokenize(self, text):
 
 ### 预训练
 获得以上数据后，截止2021年2月6日，使用BERT-wwm-ext的WordPiece词表（模型），(未来将使用基于通用数据的WordPiece模型)，正式开始预训练BERT。
-之所以叫`BERT-wwm-base-qa`是因为仅相比`BERT-wwm-ext`，其余参数没有变动，主要因为计算设备受限。
+之所以叫`bert_12L_cn`是因为仅相比`BERT-wwm-ext`，其余参数没有变动，主要因为计算设备受限。
 使用的命令如下：
 ```
     from transformers import (
