@@ -9,13 +9,13 @@
     </a>
 </p>
 
-This project provides a Chinese oriented BERT pre training model, which aims to enrich Chinese natural language processing resources and provide a variety of Chinese pre training models.
-We welcome all experts and scholars to download and use them, and work together to promote and develop the construction of Chinese resources.
+This project provides a Chinese BERT model, which aims to enrich Chinese natural language processing resources and provide a variety of Chinese pretraining models.
+We welcome all experts and scholars to download and use them, and work together to foster and develop the construction of Chinese resources.
 
 This project is based on Google's official bert: https://github.com/google-research/bert
 
 Other related resources：
-- Chinese BERT pre training model：https://github.com/ymcui/Chinese-BERT-wwm
+- Chinese BERT pre-trained model：https://github.com/ymcui/Chinese-BERT-WWM
 
 See more published resources：https://github.com/ 
 
@@ -35,21 +35,21 @@ See more published resources：https://github.com/
 ## Content guidance
 |Chapter | description|
 |-|-|
-|[introduction] (# introduction) | introduction to the basic principle of bet WwM|
-|[Model Download] (# model download) | provides the Chinese pre training BERT download address|
+|[introduction] (# introduction) | introduction to the basic principle of BERT WWM|
+|[Model Download] (# model download) | provides the Chinese pre-trained BERT download address|
 |[baseline system effect] (# baseline system effect) | some baseline system effects are listed|
-|[pre training details] (# pre training details) | relevant description of pre training details|
+|[pre-trained details] (# pre-trained details) | relevant description of pre-trained details|
 |[fine tuning details of downstream tasks] (# fine tuning details of downstream tasks) | description of fine tuning details of downstream tasks|
 |[FAQ] (#faq) | FAQ|
 |[reference] (# reference) | technical report of this catalogue|
 
 
 ## Introduction
-**Whole word masking (WwM) * *, temporarily translated as' full word mask 'or' whole word mask ', is an upgraded version of best released by Google on May 31, 2019, which mainly changes the training sample generation strategy in the original pre training stage.
+**Whole word masking (WWM) * *, temporarily translated as' full word mask 'or' whole word mask ', is an upgraded version of best released by Google on May 31, 2019, which mainly changes the training sample generation strategy in the original pre-trained stage.
 In short, the original word segmentation method based on wordpiece will cut a complete word into several sub words, which will be randomly masked when generating training samples.
 In the whole word mask, if part of the wordpiece sub word of a complete word is masked, other parts of the same word will also be masked, that is, the whole word mask.
 **It should be noted that the mask here refers to the generalized mask (replace with [mask]; keep the original word; randomly replace with another word), not limited to the case that the word is replaced with '[mask]' tag.
-For more detailed description and examples, please refer to: # 4]（ https://github.com/ymcui/Chinese-BERT-wwm/issues/4 )**
+For more detailed description and examples, please refer to: # 4]（ https://github.com/ymcui/Chinese-BERT-WWM/issues/4 )**
 Similarly, in Google's official "best base, Chinese", Chinese is segmented at the granularity of * * character * *, without considering the traditional Chinese word segmentation (CWS) in NLP.
 We apply the whole word mask method to Chinese, use Chinese Wikipedia (including simplified and traditional) for training, and use [HTU LTP]（ http://ltp.ai ）As a word segmentation tool, that is to say, mask all the Chinese characters that make up the same * * word * *.
 The following text shows an example of the generation of the full word mask.
@@ -79,8 +79,8 @@ The following text shows an example of the generation of the full word mask.
 | 中文维基百科，其他百科、新闻、问答 | D-Shen | [xlnet_24L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//xlnet_24L_cn.tgz)      | cn   | 24   | 209M   |
 
 
-> **`base`**：12-layer, 768-hidden, 12-heads, 110M parameters()  
-> **`large`**：24-layer, 1024-hidden, 16-heads, 330M parameters()  
+> **`base`**：12-layer, 768-hidden, 12-heads, 110M parameters  
+> **`large`**：24-layer, 1024-hidden, 16-heads, 330M parameters  
 > 
 > [1] 通用数据包括：问答等数据，总大小12.5MB，记录数1万，字数7.2万。  
 > [2] 加载pytorch和tf2模型时，如transformers加载报xla错误，请自行修改config.json中`xla_device`的值，如在gpu上微调需要设为false，如在tpu上微调，则需要设为true。
@@ -91,7 +91,7 @@ Pytorch version is provided.
 
 ### instructions
 
-The Chinese mainland recommends the use of Baidu cloud download points. Overseas users recommend using Google download points, and the `bert_12L_cn` model file size is about**454M** and**1.3G**. Take tensorflow version of `bert WwM base QA, Chinese` as an example. After downloading, unzip the zip file to get the following results:
+The Chinese mainland recommends the use of Baidu cloud download points. Overseas users recommend using Google download points, and the `bert_12L_cn` model file size is about**454M** and**1.3G**. Take tensorflow version of `bert WWM base QA, Chinese` as an example. After downloading, unzip the zip file to get the following results:
 ```
 tf_chinese_BERT_base_L-12_H-768_A-12.zip
     |- checkpoint                                           # 存盘点信息
@@ -123,8 +123,8 @@ chinese_BERT_base_L-12_H-768_A-12.zip
 ###Fast loading
 Relying on [hugging face transformers 3.1.0](https://github.com/huggingface/transformers) The above models can be easily called.
 ```
-tokenizer =  AutoTokenizer.from_ pretrained("MODEL_NAME")
-model =  AutoModel.from_ pretrained("MODEL_NAME")
+tokenizer =  AutoTokenizer.from_pretrained("MODEL_NAME")
+model =  AutoModel.from_pretrained("MODEL_NAME")
 
 or
 
@@ -134,11 +134,11 @@ model = BertModel.from_pretrained("MODEL_NAME")
 
 
 ## Baseline system effect
-In order to compare the baseline effect, we conducted tests on the following Chinese data sets. This paper compares Chinese best WwM ext, BERT base and BERT tiny.
+In order to compare the baseline effect, we conducted tests on the following Chinese data sets. This paper compares Chinese best WWM ext, BERT base and BERT tiny.
 Limited time and energy, and can not cover more categories of tasks, please try.
 
-## Pre training details
-The following takes the 'BERT tiny' model as an example to explain the details of pre training.
+## pre-trained details
+The following takes the 'BERT tiny' model as an example to explain the details of pre-trained.
 
 
 ### Generating Thesaurus
@@ -210,9 +210,9 @@ def tokenize(self, text):
   return output_tokens
 ```
 
-### Pre training
-After obtaining the above data, as of February 6, 2021, using the wordpiece vocabulary (model) of bet WwM ext (the wordpiece model based on general data will be used in the future), the pre training of bet will be officially started.
-The reason why it is called 'bet WwM base QA' is that compared with 'bet WwM ext', other parameters have not changed, mainly because of the limitation of computing devices.
+### pretraining
+After obtaining the above data, as of February 6, 2021, using the wordpiece vocabulary (model) of BERT WWM ext (the wordpiece model based on general data will be used in the future), the pre-trained of BERT will be officially started.
+The reason why it is called 'BERT WWM base QA' is that compared with 'BERT WWM ext', other parameters have not changed, mainly because of the limitation of computing devices.
 The command used is as follows:
 ```
     from transformers import (
@@ -301,7 +301,7 @@ The command used is as follows:
 ```
 
 
-## Fine tuning details of downstream tasks
+## Finetuning details of downstream tasks
 
 The device used for downstream task fine tuning is Google cloud GPU (16g HBM). The following briefly describes the configuration of each task fine tuning.
 
@@ -312,35 +312,35 @@ The device used for downstream task fine tuning is Google cloud GPU (16g HBM). T
 ## FAQ
 
 **Q: How to use this model?**
-A: Google released the Chinese bet how to use, this is how to use.
-**The text does not need word segmentation, and WwM only affects the pre training process and does not affect the input of downstream tasks.**
+A: Google released the Chinese BERT how to use, this is how to use.
+**The text does not need word segmentation, and WWM only affects the pre-trained process and does not affect the input of downstream tasks.**
 
-**Q: Is there a pre training code available?**
-A: Unfortunately, I can't provide the relevant code, the implementation can refer to [# 10]（ https://github.com/ymcui/Chinese-BERT-wwm/issues/10 ）And [# 13]（ https://github.com/ymcui/Chinese-BERT-wwm/issues/13 )。
+**Q: Is there a pre-trained code available?**
+A: Unfortunately, I can't provide the relevant code, the implementation can refer to [#10]（ https://github.com/ymcui/Chinese-BERT-WWM/issues/10 ）And [# 13]（ https://github.com/ymcui/Chinese-BERT-WWM/issues/13 )。
 
 **Q: Where can XX data set be downloaded?**
 A: Please check the 'data' directory and the task directory` README.md `The data source is indicated. For copyrighted content, please search by yourself or contact the original author for data.
 
-**Q: Are there any plans to release larger models? For example, the best large WwM version?**
+**Q: Are there any plans to release larger models? For example, the best large WWM version?**
 A: If we get better results from the experiment, we will consider releasing a larger version.
 
 **Q: You're lying! Results cannot be reproduced 😂**
 A: In the downstream task, we use the simplest model. For example, for classification tasks, we use ` run directly_ classifier.py `(provided by Google).
 If the average value cannot be reached, it indicates that there is a bug in the experiment itself, please check carefully.
 There are many random factors in the highest value, and we can't guarantee that we can reach the highest value.
-Another recognized factor: reducing the batch size will significantly reduce the experimental effect. For details, please refer to the related issues of bet and xlnet directory.
+Another recognized factor: reducing the batch size will significantly reduce the experimental effect. For details, please refer to the related issues of BERT and xlnet directory.
 
 **Q: I've got better results than you!**
 A: Congratulations.
 
 **Q: How long did the training take and what equipment did it use?**
-A: The training is completed in Google TPU V3 Version (128G HBM). It takes about 4 hours to train bert WwM base and 8 hours to train bert WwM large.
+A: The training is completed in Google TPU V3 Version (128G HBM). It takes about 4 hours to train bert WWM base and 8 hours to train bert WWM large.
 
 **Q: Who is Ernie?**
 A: The Ernie model in this project refers to the [Ernie] model proposed by Baidu company（ https://github.com/PaddlePaddle/LARK/tree/develop/ERNIE ）Instead of [Ernie] published by Tsinghua University in ACL 2019（ https://github.com/thunlp/ERNIE )。
 
-**Q: The effect of bet WwM is not very good in all tasks**
-A: The purpose of this project is to provide a variety of pre training models for researchers to freely choose bet, Ernie, or bet WwM.
+**Q: The effect of BERT WWM is not very good in all tasks**
+A: The purpose of this project is to provide a variety of pre-trained models for researchers to freely choose bet, Ernie, or BERT WWM.
 We only provide experimental data, but we have to try our best to get a conclusion.
 One more model, one more choice.
 
@@ -354,36 +354,30 @@ A: Frankly
 A: Each has its own emphasis and merits.
 The research and development of Chinese natural language processing needs the joint efforts of many parties.
 
-**Q: More details about the 'Roberta WwM ext' model?**
-A: We integrate the advantages of Roberta and Bert WwM to make a natural combination of them.
+**Q: More details about the 'Roberta WWM ext' model?**
+A: We integrate the advantages of Roberta and Bert WWM to make a natural combination of them.
 The differences from the previous models in this catalog are as follows:
-1) In the pre training stage, the WwM strategy was used for mask (but dynamic masking was not used)
+1) In the pre-trained stage, the WWM strategy was used for mask (but dynamic masking was not used)
 2) Simply cancel next sense prediction (NSP) loss
 3) It is no longer necessary to use the first max_ Len = 128 and then max_ Len = 512 training mode, direct training max_ len=512
 4) The training steps should be extended appropriately
 It should be noted that this model is not the original Roberta model, but just a model trained by similar Roberta training method, that is, Roberta like Bert.
 Therefore, when using downstream tasks and transforming models, please handle them in the way of Bert instead of Roberta.
-   
-**Q: ？**
-A: 。
+
 
 
 ## Citation
 If the contents in this catalogue are helpful to your research work, you are welcome to quote the following technical reports in the paper:
-https://arxiv.org/abs/
-```
-TBD
-```
 
 
 ## Thank you
-Project Author: tsinghuaboy
+Project Author: Dezhou Shen. Please follow my Twitter(@dezhou), thank you!
 During the construction of the project, the following warehouses have been referred to. Thank you here:
 - BERT：https://github.com/google-research/bert
-- Chinese best pre training model：https://github.com/ymcui/Chinese-BERT-wwm
+- Chinese pretrained model：https://github.com/ymcui/Chinese-BERT-WWM
 
 ## Disclaimer
-This project is not [Bert official](https://github.com/google-research/bert) Published Chinese BET model.
+This project is not [Bert official](https://github.com/google-research/bert) Published Chinese BERT model.
 The content of the project is only for technical research reference, not as any conclusive basis.
 Users can use the model freely within the scope of the license, but we are not responsible for the direct or indirect losses caused by using the content of the project.
 
@@ -393,5 +387,5 @@ Welcome to Zhihu column.
 
 ## Problem feedback &amp; contribution
 If you have any questions, please submit them in GitHub issue.
-We don't have an operation to encourage netizens to help each other solve problems.
+We don't have an operation to encourage people to help each other solve problems.
 If you find implementation problems or are willing to build the project together, please submit a pull request.
