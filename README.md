@@ -379,4 +379,4 @@ A: 我们集成了RoBERTa和BERT-wwm的优点，对两者进行了一个自然�
 我们没有运营，鼓励网友互相帮助解决问题。  
 如果发现实现上的问题或愿意共同建设该项目，请提交Pull Request。  
 
-项目相关联系方式：知乎私信[tsinghuaboy](https://www.zhihu.com/people/tsinghuaboy)
+项目相关联系方式：知乎私信[BrianShen/tsinghuaboy](https://www.zhihu.com/people/tsinghuaboy)
