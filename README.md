@@ -1,4 +1,4 @@
-[**中文说明**](./readme_cn.md) | [**English**](./readme.md)
+[**中文说明**](./README.md) | [**English**](./readme_en.md)
 
 <p align="center">
     <img src="./pics/banner.svg" width="500"/>
@@ -14,20 +14,19 @@
 
 
 ## 新闻
-**2023/5/9修复下载链接**
+**2023/5/9 修复下载链接**
 
 
 <details>
 <summary>历史新闻</summary>
 2021/2/6 所有模型已支持Pytorch和Tensorflow1以及Tensorflow2，请通过transformers库进行调用或下载。https://huggingface.co/
 2021/2/6 本目录发布的模型未来可接入[Huggingface-Transformers](https://github.com/huggingface/transformers)，查看[快速加载](#快速加载)
-
 2021/2/6 `bert_12L_cn`已可下载，查看[模型下载](#模型下载)
-
 2021/2/6 提供了在小规模通用语料（12.5MB）上训练的中文`bert_12L_cn`模型，查看[模型下载](#模型下载)
 </details>
 
 ## 内容导引
+
 | 章节 | 描述 |
 |-|-|
 | [简介](#简介) | 介绍BERT-wwm基本原理 |
@@ -39,6 +38,7 @@
 | [引用](#引用) | 本目录的技术报告 |
 
 ## 简介
+
 **Whole Word Masking (wwm)**，暂翻译为`全词Mask`或`整词Mask`，是谷歌在2019年5月31日发布的一项BERT的升级版本，主要更改了原预训练阶段的训练样本生成策略。
 简单来说，原有基于WordPiece的分词方式会把一个完整的词切分成若干个子词，在生成训练样本时，这些被分开的子词会随机被mask。
 在`全词Mask`中，如果一个完整的词的部分WordPiece子词被mask，则同属该词的其他部分也会被mask，即`全词Mask`。
@@ -64,19 +64,19 @@
 ## 模型下载
 | 数据集                             | owner  | model             | 语言 | 层数 | 参数量 |
 |------------------------------------|--------|-------------------|------|------|--------|
-| 中学阅读理解                       | D-Shen | [bert_3L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_3L_cn.tgz)        | cn   | 3    | 27.5M  |
-| 中学阅读理解                       | D-Shen | [bert_6L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_6L_cn.tgz)        | cn   | 6    | 55M    |
+| 中学阅读理解                       | Brian Shen | [bert_3L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_3L_cn.tgz)        | cn   | 3    | 27.5M  |
+| 中学阅读理解                       | Brian Shen | [bert_6L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_6L_cn.tgz)        | cn   | 6    | 55M    |
 | 中文维基                           | Google | [bert_12L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_12L_cn-alpha.tgz) | cn   | 12   | 110M   |
 | 中文维基                           | Google | [bert_12L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_12L_cn-beta.tgz)  | cn   | 12   | 110M   |
-| 中文维基百科，其他百科、新闻、问答 | D-Shen | [bert-3L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert-3L_cn-alpha.tgz)  | cn   | 3    | 27.5M  |
-| 中学阅读理解                       | D-Shen | [bert-3L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert-3L_cn-beta.tgz)   | cn   | 3    | 27.5M  |
-| 中文维基百科，其他百科、新闻、问答 | D-Shen | [bert_12L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_12L_cn.tgz)       | cn   | 12   | 110M   |
-| 中文维基百科，其他百科、新闻、问答 | D-Shen | [bert_24L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_24L_cn-alpha.tgz) | cn   | 24   | 330M   |
-| QA                                 | D-Shen | [bert_24L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_24L_cn-beta.tgz)  | cn   | 24   | 330M   |
-| QA                                 | D-Shen | [bert_24L_cn-gamma](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_24L_cn-gamma.tgz) | cn   | 24   | 330M   |
-| QA                                 | D-Shen | [xlnet_6L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//xlnet_6L_cn.tgz)       | cn   | 6    | 53.5M  |
-| 中文维基百科，其他百科、新闻、问答 | D-Shen | [xlnet_12L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//xlnet_12L_cn.tgz)      | cn   | 12   | 117M   |
-| 中文维基百科，其他百科、新闻、问答 | D-Shen | [xlnet_24L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//xlnet_24L_cn.tgz)      | cn   | 24   | 209M   |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert-3L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert-3L_cn-alpha.tgz)  | cn   | 3    | 27.5M  |
+| 中学阅读理解                       | Brian Shen | [bert-3L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert-3L_cn-beta.tgz)   | cn   | 3    | 27.5M  |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_12L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_12L_cn.tgz)       | cn   | 12   | 110M   |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_24L_cn-alpha.tgz) | cn   | 24   | 330M   |
+| QA                                 | Brian Shen | [bert_24L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_24L_cn-beta.tgz)  | cn   | 24   | 330M   |
+| QA                                 | Brian Shen | [bert_24L_cn-gamma](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_24L_cn-gamma.tgz) | cn   | 24   | 330M   |
+| QA                                 | Brian Shen | [xlnet_6L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//xlnet_6L_cn.tgz)       | cn   | 6    | 53.5M  |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_12L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//xlnet_12L_cn.tgz)      | cn   | 12   | 117M   |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//xlnet_24L_cn.tgz)      | cn   | 24   | 209M   |
 
 
 > **`base`**：12-layer, 768-hidden, 12-heads, 110M parameters()  
@@ -92,25 +92,7 @@
 
 ### 使用说明
 
-中国大陆境内建议使用百度云下载点，境外用户建议使用谷歌下载点，`bert_12L_cn`模型文件大小约**454M**和**1.3G**。 以TensorFlow版`bert_12L_cn, Chinese`为例，下载完毕后对zip文件进行解压得到：
-
-```
-tf_chinese_BERT_base_L-12_H-768_A-12.zip
-    |- checkpoint                                           # 存盘点信息
-    |- BERT_tiny_chinese.ckpt.data-00000-of-00001          # 模型权重
-    |- BERT_tiny_chinese.ckpt.index                        # 模型index信息
-    |- BERT_tiny_chinese.ckpt.data                         # 模型meta信息
-    |- vocab.txt                                            # 分词词表
-```
-
-TensorFlow2版本为：
-
-```
-tf2_chinese_BERT_base_L-12_H-768_A-12.zip
-    |- tf_model.h5           # 模型权重
-    |- config.json           # 模型参数
-    |- vocab.txt             # 分词词表
-```
+`bert_12L_cn`模型文件大小约**454M**和**1.3G**。
 
 Pytorch版本为：
 
@@ -124,6 +106,7 @@ chinese_BERT_base_L-12_H-768_A-12.zip
 
 
 ### 快速加载
+
 依托于[Huggingface-Transformers 3.1.0](https://github.com/huggingface/transformers) ，可轻松调用以上模型。
 ```
 tokenizer = AutoTokenizer.from_pretrained("MODEL_NAME")
@@ -147,6 +130,7 @@ model = BertModel.from_pretrained("MODEL_NAME")
 以下以`bert_12L_cn`模型为例，对预训练细节进行说明。
 
 ### 生成词表
+
 按照BERT官方教程步骤，首先需要使用[Word Piece](https://pypi.org/project/tokenizers/) 生成词表。
 WordPiece是用于BERT、DistilBERT和Electra的子词标记化算法。该算法在日语和韩语语音搜索（Schuster et al.，2012）中进行了概述，与BPE非常相似。WordPiece首先初始化词汇表以包含训练数据中的每个字符，并逐步学习给定数量的合并规则。与BPE不同的是，WordPiece并没有选择最频繁的符号对，而是选择将训练数据添加到词汇表中的可能性最大化的符号对。
 那么这到底意味着什么呢？参照前面的示例，最大化训练数据的可能性相当于找到符号对，其概率除以其第一个符号的概率然后再除以其第二个符号的概率是所有符号对中最大的。E、 只有当“ug”除以“u”、“g”的概率大于任何其他符号对时，“u”后接“g”才会合并。直观地说，WordPiece与BPE稍有不同，它通过合并两个符号来评估它所失去的东西，以确保它是值得的。
@@ -170,6 +154,7 @@ tokenizer.train(files=paths, vocab_size=21_128, min_frequency=0, special_tokens=
 
 
 ### 生成词表算法
+
 下列方法并非tokenizers的实现，作为意思表达。进一步地，对于一个英文词（中文分词同理），按照WP规则，可分成多个高频片段。示例代码如下：
 ```
 def tokenize(self, text):
@@ -309,7 +294,7 @@ def tokenize(self, text):
 
 ## 下游任务微调细节
 下游任务微调使用的设备是谷歌Cloud GPU（16G HBM），以下简要说明各任务精调时的配置。
-**相关代码请查看[TBD]项目。**
+**相关代码请查看项目。**
 
 
 ## FAQ
@@ -338,10 +323,6 @@ A: 恭喜你。
 **Q: 训练花了多长时间，在什么设备上训练的？**  
 A: 训练是在谷歌TPU v3版本（128G HBM）完成的，训练BERT-wwm-base花费约4小时，BERT-wwm-large则花费约8小时。
 
-
-**Q: ERNIE是谁？**  
-A: 本项目中的ERNIE模型特指百度公司提出的[ERNIE](https://github.com/PaddlePaddle/LARK/tree/develop/ERNIE)，而非清华大学在ACL 2019上发表的[ERNIE](https://github.com/thunlp/ERNIE)。
-
 **Q: BERT-wwm的效果不是在所有任务都很好**  
 A: 本项目的目的是为研究者提供多元化的预训练模型，自由选择BERT，ERNIE，或者是BERT-wwm。
 我们仅提供实验数据，具体效果如何还是得在自己的任务中不断尝试才能得出结论。
@@ -368,16 +349,9 @@ A: 我们集成了RoBERTa和BERT-wwm的优点，对两者进行了一个自然�
 需要注意的是，该模型并非原版RoBERTa模型，只是按照类似RoBERTa训练方式训练出的BERT模型，即RoBERTa-like BERT。
 故在下游任务使用、模型转换时请按BERT的方式处理，而非RoBERTa。
 
-**Q: ？**  
-A: 。
-
 
 ## 引用
 如果本目录中的内容对你的研究工作有所帮助，欢迎在论文中引用下述技术报告：
-https://arxiv.org/abs/
-```
-TBD
-```
 
 
 ## 致谢
@@ -397,7 +371,7 @@ TBD
 ## 关注我们
 欢迎关注知乎专栏号。
 
-[学习兴趣小组](https://www.zhihu.com/column/thuil)
+[深度学习兴趣小组](https://www.zhihu.com/column/thuil)
 
 
 ## 问题反馈 & 贡献
@@ -405,4 +379,4 @@ TBD
 我们没有运营，鼓励网友互相帮助解决问题。  
 如果发现实现上的问题或愿意共同建设该项目，请提交Pull Request。  
 
-项目相关联系方式：知乎[tsinghuaboy](https://www.zhihu.com/people/tsinghuaboy)
+项目相关联系方式：知乎私信[tsinghuaboy](https://www.zhihu.com/people/tsinghuaboy)
