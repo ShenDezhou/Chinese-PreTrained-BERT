@@ -3,11 +3,6 @@
 <p align="center">
     <img src="./pics/banner.svg" width="500"/>
 </p>
-<p align="center">
-    <a href="https://github.com/shendezhou/Chinese-PreTrained-BERT/blob/master/LICENSE">
-        <img alt="LICENCE" src="" />
-    </a>
-</p>
 
 This project provides a Chinese BERT model, which aims to enrich Chinese natural language processing resources and provide a variety of Chinese pretraining models.
 We welcome all experts and scholars to download and use them, and work together to foster and develop the construction of Chinese resources.
@@ -371,7 +366,7 @@ If the contents in this catalogue are helpful to your research work, you are wel
 
 
 ## Thank you
-Project Author: Dezhou Shen. Please follow my Twitter(@dezhou), thank you!
+Project Author: Brian Shen. Twitter@dezhou. Please follow my Twitter, thank you!
 During the construction of the project, the following warehouses have been referred to. Thank you here:
 - BERT：https://github.com/google-research/bert
 - Chinese pretrained model：https://github.com/ymcui/Chinese-BERT-WWM
@@ -383,7 +378,7 @@ Users can use the model freely within the scope of the license, but we are not r
 
 ## Focus on us
 Welcome to Zhihu column.
-[learning interest group](https://www.zhihu.com/column/thuil)
+[Deep learning interest group](https://www.zhihu.com/column/thuil)
 
 ## Problem feedback &amp; contribution
 If you have any questions, please submit them in GitHub issue.

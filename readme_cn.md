@@ -3,11 +3,6 @@
 <p align="center">
     <img src="./pics/banner.svg" width="500"/>
 </p>
-<p align="center">
-    <a href="https://github.com/shendezhou/Chinese-PreTrained-BERT/blob/master/LICENSE">
-        <img alt="LICENCE" src="" />
-    </a>
-</p>
 
 本项目提供了面向中文的BERT预训练模型，旨在丰富中文自然语言处理资源，提供多元化的中文预训练模型选择。
 我们欢迎各位专家学者下载使用，并共同促进和发展中文资源建设。
@@ -17,14 +12,14 @@
 其他相关资源：
 - 中文BERT预训练模型：https://github.com/ymcui/Chinese-BERT-wwm
 
-查看更多发布的资源：https://github.com/ 
 
 ## 新闻
-**2021/2/6 所有模型已支持Pytorch和Tensorflow1以及Tensorflow2，请通过transformers库进行调用或下载。https://huggingface.co/**
+**2023/5/9修复下载链接**
 
 
 <details>
 <summary>历史新闻</summary>
+2021/2/6 所有模型已支持Pytorch和Tensorflow1以及Tensorflow2，请通过transformers库进行调用或下载。https://huggingface.co/
 2021/2/6 本目录发布的模型未来可接入[Huggingface-Transformers](https://github.com/huggingface/transformers)，查看[快速加载](#快速加载)
 
 2021/2/6 `bert_12L_cn`已可下载，查看[模型下载](#模型下载)
@@ -386,7 +381,7 @@ TBD
 
 
 ## 致谢
-项目作者： tsinghuaboy
+项目作者： Brian Shen. Twitter@dezhou.
 
 建设该项目过程中参考了如下仓库，在这里表示感谢：
 - BERT：https://github.com/google-research/bert
@@ -409,3 +404,5 @@ TBD
 如有问题，请在GitHub Issue中提交。  
 我们没有运营，鼓励网友互相帮助解决问题。  
 如果发现实现上的问题或愿意共同建设该项目，请提交Pull Request。  
+
+项目相关联系方式：知乎[tsinghuaboy](https://www.zhihu.com/people/tsinghuaboy)
