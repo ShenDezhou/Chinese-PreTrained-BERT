@@ -64,19 +64,19 @@
 ## 模型下载
 | 数据集                             | owner  | model             | 语言 | 层数 | 参数量 |
 |------------------------------------|--------|-------------------|------|------|--------|
-| 中学阅读理解                       | Brian Shen | [bert_3L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_3L_cn.tgz)        | cn   | 3    | 27.5M  |
-| 中学阅读理解                       | Brian Shen | [bert_6L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_6L_cn.tgz)        | cn   | 6    | 55M    |
-| 中文维基                           | Google | [bert_12L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_12L_cn-alpha.tgz) | cn   | 12   | 110M   |
-| 中文维基                           | Google | [bert_12L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_12L_cn-beta.tgz)  | cn   | 12   | 110M   |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert-3L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert-3L_cn-alpha.tgz)  | cn   | 3    | 27.5M  |
-| 中学阅读理解                       | Brian Shen | [bert-3L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert-3L_cn-beta.tgz)   | cn   | 3    | 27.5M  |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_12L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_12L_cn.tgz)       | cn   | 12   | 110M   |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_24L_cn-alpha.tgz) | cn   | 24   | 330M   |
-| QA                                 | Brian Shen | [bert_24L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_24L_cn-beta.tgz)  | cn   | 24   | 330M   |
-| QA                                 | Brian Shen | [bert_24L_cn-gamma](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_24L_cn-gamma.tgz) | cn   | 24   | 330M   |
-| QA                                 | Brian Shen | [xlnet_6L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//xlnet_6L_cn.tgz)       | cn   | 6    | 53.5M  |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_12L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//xlnet_12L_cn.tgz)      | cn   | 12   | 117M   |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//xlnet_24L_cn.tgz)      | cn   | 24   | 209M   |
+| 中学阅读理解                       | Brian Shen | [bert_3L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_3L_cn.tgz)        | cn   | 3    | 27.5M  |
+| 中学阅读理解                       | Brian Shen | [bert_6L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_6L_cn.tgz)        | cn   | 6    | 55M    |
+| 中文维基                           | Google | [bert_12L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_12L_cn-alpha.tgz) | cn   | 12   | 110M   |
+| 中文维基                           | Google | [bert_12L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_12L_cn-beta.tgz)  | cn   | 12   | 110M   |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert-3L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert-3L_cn-alpha.tgz)  | cn   | 3    | 27.5M  |
+| 中学阅读理解                       | Brian Shen | [bert-3L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert-3L_cn-beta.tgz)   | cn   | 3    | 27.5M  |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_12L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_12L_cn.tgz)       | cn   | 12   | 110M   |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_24L_cn-alpha.tgz) | cn   | 24   | 330M   |
+| QA                                 | Brian Shen | [bert_24L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_24L_cn-beta.tgz)  | cn   | 24   | 330M   |
+| QA                                 | Brian Shen | [bert_24L_cn-gamma](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_24L_cn-gamma.tgz) | cn   | 24   | 330M   |
+| QA                                 | Brian Shen | [xlnet_6L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_6L_cn.tgz)       | cn   | 6    | 53.5M  |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_12L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_12L_cn.tgz)      | cn   | 12   | 117M   |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_24L_cn.tgz)      | cn   | 24   | 209M   |
 
 
 > **`base`**：12-layer, 768-hidden, 12-heads, 110M parameters()  
