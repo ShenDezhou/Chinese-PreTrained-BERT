@@ -62,6 +62,7 @@
 
 
 ## 模型下载
+
 | 数据集                             | owner  | model             | 语言 | 层数 | 参数量 |
 |------------------------------------|--------|-------------------|------|------|--------|
 | 中学阅读理解                       | Brian Shen | [bert_3L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_3L_cn.tgz)        | cn   | 3    | 27.5M  |
@@ -79,8 +80,8 @@
 | 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_24L_cn.tgz)      | cn   | 24   | 209M   |
 
 
-> **`base`**：12-layer, 768-hidden, 12-heads, 110M parameters()  
-> **`large`**：24-layer, 1024-hidden, 16-heads, 330M parameters()
+> **`base`**：12-layer, 768-hidden, 12-heads, 110M parameters  
+> **`large`**：24-layer, 1024-hidden, 16-heads, 330M parameters
 > 
 > [1] 通用数据包括：问答等数据，总大小12.5MB，记录数1万，字数7.2万。  
 > [2] 加载pytorch和tf2模型时，如transformers加载报xla错误，请自行修改config.json中`xla_device`的值，如在gpu上微调需要设为false，如在tpu上微调，则需要设为true。
