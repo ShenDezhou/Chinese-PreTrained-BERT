@@ -5,7 +5,7 @@
 </p>
 
 本项目提供了面向中文的BERT预训练模型，旨在丰富中文自然语言处理资源，提供多元化的中文预训练模型选择。
-我们欢迎各位专家学者下载使用，并共同促进和发展中文资源建设。
+欢迎各位专家学者下载使用，并共同促进和发展中文资源建设。
 
 本项目基于谷歌官方BERT：https://github.com/google-research/bert
 
@@ -14,11 +14,16 @@
 
 
 ## 新闻
-**2023/5/9 修复下载链接**
-
+**2023/5/16 发布中文预训练模型BERT-Tiny，BERT-Mini**。  
+由新闻语料训练100k步。超参数与谷歌BERT基本一致。  
+BERT-Tiny: masked_lm_accuracy=22.74%，NSP_accuracy=100%。  
+BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。  
+上述分词MASK方法使用谷歌默认方法：区分大小写，按中文字分词。
+词表采用谷歌中文默认的21128个次的词表。
 
 <details>
 <summary>历史新闻</summary>
+2023/5/9 修复下载链接
 2021/2/6 所有模型已支持Pytorch和Tensorflow1以及Tensorflow2，请通过transformers库进行调用或下载。https://huggingface.co/
 2021/2/6 本目录发布的模型未来可接入[Huggingface-Transformers](https://github.com/huggingface/transformers)，查看[快速加载](#快速加载)
 2021/2/6 `bert_12L_cn`已可下载，查看[模型下载](#模型下载)
@@ -63,21 +68,23 @@
 
 ## 模型下载
 
-| 数据集                             | owner  | model             | 语言 | 层数 | 参数量 |
-|------------------------------------|--------|-------------------|------|------|--------|
-| 中学阅读理解                       | Brian Shen | [bert_3L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_3L_cn.tgz)        | cn   | 3    | 27.5M  |
-| 中学阅读理解                       | Brian Shen | [bert_6L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_6L_cn.tgz)        | cn   | 6    | 55M    |
-| 中文维基                           | Google | [bert_12L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_12L_cn-alpha.tgz) | cn   | 12   | 110M   |
-| 中文维基                           | Google | [bert_12L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_12L_cn-beta.tgz)  | cn   | 12   | 110M   |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert-3L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert-3L_cn-alpha.tgz)  | cn   | 3    | 27.5M  |
-| 中学阅读理解                       | Brian Shen | [bert-3L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert-3L_cn-beta.tgz)   | cn   | 3    | 27.5M  |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_12L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_12L_cn.tgz)       | cn   | 12   | 110M   |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_24L_cn-alpha.tgz) | cn   | 24   | 330M   |
-| QA                                 | Brian Shen | [bert_24L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_24L_cn-beta.tgz)  | cn   | 24   | 330M   |
-| QA                                 | Brian Shen | [bert_24L_cn-gamma](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_24L_cn-gamma.tgz) | cn   | 24   | 330M   |
-| QA                                 | Brian Shen | [xlnet_6L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_6L_cn.tgz)       | cn   | 6    | 53.5M  |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_12L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_12L_cn.tgz)      | cn   | 12   | 117M   |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_24L_cn.tgz)      | cn   | 24   | 209M   |
+| 数据集               | owner  | model                                | 语言 | 层数 | 参数量 |
+|-------------------|--------|--------------------------------------|------|----|--------|
+| 新闻[3]             | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]  | cn   | 2  | M  |
+| 新闻[3]                | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt] | cn   | 4  | M    |
+| 中学阅读理解            | Brian Shen | [bert_3L_cn]                         | cn   | 3  | 27.5M  |
+| 中学阅读理解            | Brian Shen | [bert_6L_cn]                         | cn   | 6  | 55M    |
+| 中文维基              | Google | [bert_12L_cn-alpha]                  | cn   | 12 | 110M   |
+| 中文维基              | Google | [bert_12L_cn-beta]                   | cn   | 12 | 110M   |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert-3L_cn-alpha]                   | cn   | 3  | 27.5M  |
+| 中学阅读理解            | Brian Shen | [bert-3L_cn-beta]                    | cn   | 3  | 27.5M  |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_12L_cn]                        | cn   | 12 | 110M   |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn-alpha]                  | cn   | 24 | 330M   |
+| QA                | Brian Shen | [bert_24L_cn-beta]                   | cn   | 24 | 330M   |
+| QA                | Brian Shen | [bert_24L_cn-gamma]                  | cn   | 24 | 330M   |
+| QA                | Brian Shen | [xlnet_6L_cn]                        | cn   | 6  | 53.5M  |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_12L_cn]                       | cn   | 12 | 117M   |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn]                       | cn   | 24 | 209M   |
 
 
 > **`base`**：12-layer, 768-hidden, 12-heads, 110M parameters  
@@ -85,11 +92,29 @@
 > 
 > [1] 通用数据包括：问答等数据，总大小12.5MB，记录数1万，字数7.2万。  
 > [2] 加载pytorch和tf2模型时，如transformers加载报xla错误，请自行修改config.json中`xla_device`的值，如在gpu上微调需要设为false，如在tpu上微调，则需要设为true。
+> [3] 新闻语料： 5000篇2021年新闻。
 
+[bert_tiny_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/chinese_L-2_H-128_A-2.zip
+[bert_tiny_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/chinese_L-2_H-128_A-2.tgz
+[bert_mini_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/chinese_L-4_H-256_A-4.zip
+[bert_mini_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/chinese_L-4_H-256_A-4.tgz
+[bert_3L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_3L_cn.tgz
+[bert_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_6L_cn.tgz
+[bert_12L_cn-alpha]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_12L_cn-alpha.tgz
+[bert_12L_cn-beta]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_12L_cn-beta.tgz
+[bert-3L_cn-alpha]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert-3L_cn-alpha.tgz
+[bert-3L_cn-beta]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert-3L_cn-beta.tgz
+[bert_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_12L_cn.tgz
+[bert_24L_cn-alpha]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_24L_cn-alpha.tgz
+[bert_24L_cn-beta]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_24L_cn-beta.tgz
+[bert_24L_cn-gamma]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_24L_cn-gamma.tgz
+[xlnet_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_6L_cn.tgz
+[xlnet_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_12L_cn.tgz
+[xlnet_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_24L_cn.tgz
 
 ### PyTorch/Tensorflow版本
 
-提供PyTorch版本。
+部分提供Tensorflow和Pytorch版本，部分仅提供PyTorch版本。
 
 ### 使用说明
 
