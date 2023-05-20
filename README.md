@@ -92,7 +92,7 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
  
 > [corpus-1] 通用数据包括：问答等数据，总大小12.5MB，记录数1万，字数7.2万。  
 > [corpus-2] 加载pytorch和tf2模型时，如transformers加载报xla错误，请自行修改config.json中`xla_device`的值，如在gpu上微调需要设为false，如在tpu上微调，则需要设为true。  
-> [corpus-3] 新闻语料：5000篇2021年新闻。
+> [corpus-3] 新闻语料：5000篇2021年新闻，大小约13MB。
 > [model-4] Chinese-Bert-Base: 谷歌中文BERT-Base的参数量经计算为102.3M，而原论文为110M。此处计算方法统计TF转Pytorch后包含Embedding的全部参数量，谷歌原文可能有误。统计脚本[count.py](/count.py)。
 
  
