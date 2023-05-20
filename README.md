@@ -68,23 +68,23 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 
 ## 模型下载
 
-| 数据集                          | owner  | model                                | 语言 | 层数 | 参数量     |
-|------------------------------|--------|--------------------------------------|------|----|---------|
-| 新闻[corpus-3]                 | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]  | cn   | 2  | 3.2M    |
-| 新闻[corpus-3]                 | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt] | cn   | 4  | 8.8M    |
-| 中学阅读理解                       | Brian Shen | [bert_3L_cn]                         | cn   | 3  | 27.5M   |
-| 中学阅读理解                       | Brian Shen | [bert_6L_cn]                         | cn   | 6  | 55M     |
-| 中文维基                         | Google | [bert_12L_cn-alpha]                  | cn   | 12 | 110M[model-4] |
-| 中文维基                         | Google | [bert_12L_cn-beta]                   | cn   | 12 | 110M[model-4] |
-| 中文维基百科，其他百科、新闻、问答   | Brian Shen | [bert-3L_cn-alpha]                   | cn   | 3  | 27.5M   |
-| 中学阅读理解                       | Brian Shen | [bert-3L_cn-beta]                    | cn   | 3  | 27.5M   |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_12L_cn]                        | cn   | 12 | 110M    |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn-alpha]                  | cn   | 24 | 330M    |
-| QA                           | Brian Shen | [bert_24L_cn-beta]                   | cn   | 24 | 330M    |
-| QA                           | Brian Shen | [bert_24L_cn-gamma]                  | cn   | 24 | 330M    |
-| QA                           | Brian Shen | [xlnet_6L_cn]                        | cn   | 6  | 53.5M   |
-| 中文维基百科，其他百科、新闻、问答  | Brian Shen | [xlnet_12L_cn]                       | cn   | 12 | 117M    |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn]                       | cn   | 24 | 209M    |
+| 数据集                          | owner  | model                                | 语言 | 层数| hidden | head | 参数量             |
+|------------------------------|--------|--------------------------------------|------|----|--------|------|-----------------|
+| 新闻[corpus-3]                 | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]  | cn   | 2  | 128    | 2    | 3.2M            |
+| 新闻[corpus-3]                 | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt] | cn   | 4  | 256    | 4    | 8.8M            |
+| 中学阅读理解                       | Brian Shen | [bert_2L_cn]                         | cn   | 2 | 768    | 4    | 16.8M           |
+| 中学阅读理解                       | Brian Shen | [bert_6L_cn]                         | cn   | 6 | 768    | 12   | 45.1M           |
+| 中文维基                         | Google | [bert_google_1_12L_cn]                  | cn   | 12 | 768    | 12   | 102.3M[model-1] |
+| 中文维基                         | Google | [bert_google_2_12L_cn]                   | cn   | 12 | 768    | 12   | 102.3M[model-1] |
+| 中文维基百科，其他百科、新闻、问答   | Brian Shen | [roberta-3L_cn-alpha]                | cn   | 3 | 768    | 12   | 38.5M           |
+| 中学阅读理解                       | Brian Shen | [roberta-3L_cn-beta]                 | cn   | 3| 1024   | 16   | 61.0M           |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_12L_cn]                        | cn   | 12 | 768    | 12   | 102.3M          |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn]                        | cn   | 24 | 1024   | 16   | 325.5M          |
+| QA                           | Brian Shen | [bert_24L_cn-arya]                   | cn   | 24 | 1024   | 16   | 325.5M          |
+| QA                           | Brian Shen | [bert_24L_cn-daenerys]               | cn   | 24 | 1024   | 16   | 325.5M          |
+| QA                           | Brian Shen | [xlnet_6L_cn]                        | cn   | 6  |        |      | 53.5M           |
+| 中文维基百科，其他百科、新闻、问答  | Brian Shen | [xlnet_12L_cn]                       | cn   | 12 |        |      | 117M            |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn]                       | cn   | 24 |        |      | 209M            |
 
 
 > **`base`**：12-layer, 768-hidden, 12-heads, 110M parameters  
@@ -93,7 +93,7 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 > [corpus-1] 通用数据包括：问答等数据，总大小12.5MB，记录数1万，字数7.2万。  
 > [corpus-2] 加载pytorch和tf2模型时，如transformers加载报xla错误，请自行修改config.json中`xla_device`的值，如在gpu上微调需要设为false，如在tpu上微调，则需要设为true。  
 > [corpus-3] 新闻语料：5000篇2021年新闻，大小约13MB。
-> [model-4] Chinese-Bert-Base: 谷歌中文BERT-Base的参数量经计算为102.3M，而原论文为110M。此处计算方法统计TF转Pytorch后包含Embedding的全部参数量，谷歌原文可能有误。统计脚本[count.py](/count.py)。
+> [model-1] Chinese-Bert-Base: 谷歌中文BERT-Base的参数量经计算为102.3M，而原论文为110M。此处计算方法统计TF转Pytorch后包含Embedding的全部参数量，谷歌原文可能有误。统计脚本[count.py](/count.py)。
 
  
 
@@ -102,16 +102,16 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 [bert_tiny_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/chinese_L-2_H-128_A-2.tgz
 [bert_mini_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/chinese_L-4_H-256_A-4.zip
 [bert_mini_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/chinese_L-4_H-256_A-4.tgz
-[bert_3L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_3L_cn.tgz
-[bert_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_6L_cn.tgz
-[bert_12L_cn-alpha]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_12L_cn-alpha.tgz
-[bert_12L_cn-beta]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_12L_cn-beta.tgz
-[bert-3L_cn-alpha]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert-3L_cn-alpha.tgz
-[bert-3L_cn-beta]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert-3L_cn-beta.tgz
-[bert_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_12L_cn.tgz
-[bert_24L_cn-alpha]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_24L_cn-alpha.tgz
-[bert_24L_cn-beta]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_24L_cn-beta.tgz
-[bert_24L_cn-gamma]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_24L_cn-gamma.tgz
+[bert_2L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_L-2_H-768_A-4_cn.zip
+[bert_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_L-6_H-768_A-12_cn.zip
+[bert_google_1_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_google_1_L-12_H-768_A-12_cn.zip
+[bert_google_2_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_google_2_L-12_H-768_A-12_cn.zip
+[roberta-3L_cn-alpha]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-3_H-768_A-12_cn.zip
+[roberta-3L_cn-beta]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-3_H-1024_A-16_cn.zip
+[bert_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-12_H-768_A-12_cn.zip
+[bert_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-24_H-1024_A-16_cn.zip
+[bert_24L_cn-arya]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_arya_L-24_H-1024_A-16_cn.zip
+[bert_24L_cn-daenerys]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_daenerys_L-24_H-1024_A-16_cn.zip
 [xlnet_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_6L_cn.tgz
 [xlnet_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_12L_cn.tgz
 [xlnet_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_24L_cn.tgz
