@@ -68,22 +68,22 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 
 ## 模型下载
 
-| 数据集               | owner  | model                                | 语言 | 层数 | 参数量     |
-|-------------------|--------|--------------------------------------|------|----|---------|
-| 新闻[corpus-3]             | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]  | cn   | 2  | 3.2M    |
-| 新闻[corpus-3]                | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt] | cn   | 4  | 8.8M    |
-| 中学阅读理解            | Brian Shen | [bert_3L_cn]                         | cn   | 3  | 27.5M   |
-| 中学阅读理解            | Brian Shen | [bert_6L_cn]                         | cn   | 6  | 55M     |
-| 中文维基              | Google | [bert_12L_cn-alpha]                  | cn   | 12 | 110M[model-4] |
-| 中文维基              | Google | [bert_12L_cn-beta]                   | cn   | 12 | 110M[model-4] |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert-3L_cn-alpha]                   | cn   | 3  | 27.5M   |
-| 中学阅读理解            | Brian Shen | [bert-3L_cn-beta]                    | cn   | 3  | 27.5M   |
+| 数据集                          | owner  | model                                | 语言 | 层数 | 参数量     |
+|------------------------------|--------|--------------------------------------|------|----|---------|
+| 新闻[corpus-3]                 | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]  | cn   | 2  | 3.2M    |
+| 新闻[corpus-3]                 | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt] | cn   | 4  | 8.8M    |
+| 中学阅读理解                       | Brian Shen | [bert_3L_cn]                         | cn   | 3  | 27.5M   |
+| 中学阅读理解                       | Brian Shen | [bert_6L_cn]                         | cn   | 6  | 55M     |
+| 中文维基                         | Google | [bert_12L_cn-alpha]                  | cn   | 12 | 110M[model-4] |
+| 中文维基                         | Google | [bert_12L_cn-beta]                   | cn   | 12 | 110M[model-4] |
+| 中文维基百科，其他百科、新闻、问答   | Brian Shen | [bert-3L_cn-alpha]                   | cn   | 3  | 27.5M   |
+| 中学阅读理解                       | Brian Shen | [bert-3L_cn-beta]                    | cn   | 3  | 27.5M   |
 | 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_12L_cn]                        | cn   | 12 | 110M    |
 | 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn-alpha]                  | cn   | 24 | 330M    |
-| QA                | Brian Shen | [bert_24L_cn-beta]                   | cn   | 24 | 330M    |
-| QA                | Brian Shen | [bert_24L_cn-gamma]                  | cn   | 24 | 330M    |
-| QA                | Brian Shen | [xlnet_6L_cn]                        | cn   | 6  | 53.5M   |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_12L_cn]                       | cn   | 12 | 117M    |
+| QA                           | Brian Shen | [bert_24L_cn-beta]                   | cn   | 24 | 330M    |
+| QA                           | Brian Shen | [bert_24L_cn-gamma]                  | cn   | 24 | 330M    |
+| QA                           | Brian Shen | [xlnet_6L_cn]                        | cn   | 6  | 53.5M   |
+| 中文维基百科，其他百科、新闻、问答  | Brian Shen | [xlnet_12L_cn]                       | cn   | 12 | 117M    |
 | 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn]                       | cn   | 24 | 209M    |
 
 
@@ -130,7 +130,6 @@ Pytorch版本为：
 chinese_BERT_base_L-12_H-768_A-12.zip
     |- pytorch_model.bin     # 模型权重
     |- config.json           # 模型参数
-    |- training_args.bin     # 模型训练信息
     |- vocab.txt             # 分词词表
 ```
 
@@ -153,11 +152,13 @@ model = BertModel.from_pretrained("MODEL_NAME")
 ## 基线系统效果
 为了对比基线效果，我们在以下几个英文数据集上进行了测试。对比了英文BERT-Tiny、中文BERT-Tiny、中文BERT-Mini、中文BERT-wwm-ext、BERT-base以及本项目的bert_12L_cn。
 
-| Model        |Score | CoLA |SST-2 |  MRPC  | STS-B |  QQP  |MNLI-m|MNLI-mm|QNLI(v2)| RTE  | WNLI |
-|--------------|:-----:|:----:|:----:|:------:|:-----:|:-----:|:----:|:-----:|:------:|:----:|:----:|
-| BERT-Tiny[1] | 65.13|	69.12|79.12 | 70.34  | 42.73 | 79.81 |64.60	| 66.47 | 77.63	 |59.21	|42.25 |
-| BERT-Tiny-CN | 56.00|	69.12|	71.10| 	68.38 | 24.33 | 73.79 |	49.23|	49.79 | 59.30  |51.26 |	43.66|
-| BERT-Mini-CN | |
+| Model        | Score |  CoLA  | SST-2 |  MRPC  | STS-B |  QQP  |MNLI-m| MNLI-mm |QNLI(v2)|  RTE   | WNLI  |
+|--------------|:-----:|:------:|:-----:|:------:|:-----:|:-----:|:----:|:-------:|:------:|:------:|:-----:|
+| BERT-Tiny[1] | 65.13 | 69.12  | 79.12 | 70.34  | 42.73 | 79.81 |64.60 |  66.47  | 77.63  | 59.21	 | 42.25 |
+| BERT-Tiny-CN | 56.00 | 69.12  | 71.10 | 	68.38 | 24.33 | 73.79 |49.23 | 	49.79  | 59.30  | 51.26  | 43.66 |
+| BERT-Mini-CN |       | 69.12	 | 75.91 | 	68.38 | 25.4  |  	  |55.24 | 	55.09  | 56.33  | 49.10  | 56.34 |
+
+
 
 > [1] 这是谷歌的BERT-Tiny模型，在GLUE测试数据集上，CoLA评分为0，本测评使用相同脚本重新对所有模型进行统一测评，以对比结果。
 
