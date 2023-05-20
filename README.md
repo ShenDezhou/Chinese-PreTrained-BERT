@@ -14,12 +14,12 @@
 
 
 ## 新闻
-**2023/5/16 发布中文预训练模型BERT-Tiny，BERT-Mini**。  
+**2023/5/16 发布中文预训练模型BERT-Tiny-CN，BERT-Mini-CN**。  
 由新闻语料训练100k步。超参数与谷歌BERT基本一致。  
 BERT-Tiny: masked_lm_accuracy=22.74%，NSP_accuracy=100%。  
 BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。  
 上述分词MASK方法使用谷歌默认方法：区分大小写，按中文字分词。
-词表采用谷歌中文默认的21128个次的词表。
+词表采用谷歌中文默认的21128个词的词表。
 
 <details>
 <summary>历史新闻</summary>
@@ -68,31 +68,35 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 
 ## 模型下载
 
-| 数据集               | owner  | model                                | 语言 | 层数 | 参数量 |
-|-------------------|--------|--------------------------------------|------|----|--------|
-| 新闻[3]             | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]  | cn   | 2  | M  |
-| 新闻[3]                | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt] | cn   | 4  | M    |
-| 中学阅读理解            | Brian Shen | [bert_3L_cn]                         | cn   | 3  | 27.5M  |
-| 中学阅读理解            | Brian Shen | [bert_6L_cn]                         | cn   | 6  | 55M    |
-| 中文维基              | Google | [bert_12L_cn-alpha]                  | cn   | 12 | 110M   |
-| 中文维基              | Google | [bert_12L_cn-beta]                   | cn   | 12 | 110M   |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert-3L_cn-alpha]                   | cn   | 3  | 27.5M  |
-| 中学阅读理解            | Brian Shen | [bert-3L_cn-beta]                    | cn   | 3  | 27.5M  |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_12L_cn]                        | cn   | 12 | 110M   |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn-alpha]                  | cn   | 24 | 330M   |
-| QA                | Brian Shen | [bert_24L_cn-beta]                   | cn   | 24 | 330M   |
-| QA                | Brian Shen | [bert_24L_cn-gamma]                  | cn   | 24 | 330M   |
-| QA                | Brian Shen | [xlnet_6L_cn]                        | cn   | 6  | 53.5M  |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_12L_cn]                       | cn   | 12 | 117M   |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn]                       | cn   | 24 | 209M   |
+| 数据集               | owner  | model                                | 语言 | 层数 | 参数量     |
+|-------------------|--------|--------------------------------------|------|----|---------|
+| 新闻[corpus-3]             | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]  | cn   | 2  | 3.2M    |
+| 新闻[corpus-3]                | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt] | cn   | 4  | 8.8M    |
+| 中学阅读理解            | Brian Shen | [bert_3L_cn]                         | cn   | 3  | 27.5M   |
+| 中学阅读理解            | Brian Shen | [bert_6L_cn]                         | cn   | 6  | 55M     |
+| 中文维基              | Google | [bert_12L_cn-alpha]                  | cn   | 12 | 110M[model-4] |
+| 中文维基              | Google | [bert_12L_cn-beta]                   | cn   | 12 | 110M[model-4] |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert-3L_cn-alpha]                   | cn   | 3  | 27.5M   |
+| 中学阅读理解            | Brian Shen | [bert-3L_cn-beta]                    | cn   | 3  | 27.5M   |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_12L_cn]                        | cn   | 12 | 110M    |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn-alpha]                  | cn   | 24 | 330M    |
+| QA                | Brian Shen | [bert_24L_cn-beta]                   | cn   | 24 | 330M    |
+| QA                | Brian Shen | [bert_24L_cn-gamma]                  | cn   | 24 | 330M    |
+| QA                | Brian Shen | [xlnet_6L_cn]                        | cn   | 6  | 53.5M   |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_12L_cn]                       | cn   | 12 | 117M    |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn]                       | cn   | 24 | 209M    |
 
 
 > **`base`**：12-layer, 768-hidden, 12-heads, 110M parameters  
 > **`large`**：24-layer, 1024-hidden, 16-heads, 330M parameters
-> 
-> [1] 通用数据包括：问答等数据，总大小12.5MB，记录数1万，字数7.2万。  
-> [2] 加载pytorch和tf2模型时，如transformers加载报xla错误，请自行修改config.json中`xla_device`的值，如在gpu上微调需要设为false，如在tpu上微调，则需要设为true。
-> [3] 新闻语料： 5000篇2021年新闻。
+ 
+> [corpus-1] 通用数据包括：问答等数据，总大小12.5MB，记录数1万，字数7.2万。  
+> [corpus-2] 加载pytorch和tf2模型时，如transformers加载报xla错误，请自行修改config.json中`xla_device`的值，如在gpu上微调需要设为false，如在tpu上微调，则需要设为true。  
+> [corpus-3] 新闻语料：5000篇2021年新闻。
+> [model-4] Chinese-Bert-Base: 谷歌中文BERT-Base的参数量经计算为102.3M，而原论文为110M。此处计算方法统计TF转Pytorch后包含Embedding的全部参数量，谷歌原文可能有误。统计脚本[count.py](/count.py)。
+
+ 
+
 
 [bert_tiny_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/chinese_L-2_H-128_A-2.zip
 [bert_tiny_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/chinese_L-2_H-128_A-2.tgz
@@ -147,13 +151,27 @@ model = BertModel.from_pretrained("MODEL_NAME")
 
 
 ## 基线系统效果
-为了对比基线效果，我们在以下几个中文数据集上进行了测试。对比了中文BERT-wwm-ext、BERT-base以及本项目的bert_12L_cn。
-时间及精力有限，并未能覆盖更多类别的任务，请大家自行尝试。
+为了对比基线效果，我们在以下几个英文数据集上进行了测试。对比了英文BERT-Tiny、中文BERT-Tiny、中文BERT-Mini、中文BERT-wwm-ext、BERT-base以及本项目的bert_12L_cn。
 
+| Model        |Score | CoLA |SST-2 |  MRPC  | STS-B |  QQP  |MNLI-m|MNLI-mm|QNLI(v2)| RTE  | WNLI |
+|--------------|:-----:|:----:|:----:|:------:|:-----:|:-----:|:----:|:-----:|:------:|:----:|:----:|
+| BERT-Tiny[1] | 65.13|	69.12|79.12 | 70.34  | 42.73 | 79.81 |64.60	| 66.47 | 77.63	 |59.21	|42.25 |
+| BERT-Tiny-CN | 56.00|	69.12|	71.10| 	68.38 | 24.33 | 73.79 |	49.23|	49.79 | 59.30  |51.26 |	43.66|
+| BERT-Mini-CN | |
 
+> [1] 这是谷歌的BERT-Tiny模型，在GLUE测试数据集上，CoLA评分为0，本测评使用相同脚本重新对所有模型进行统一测评，以对比结果。
 
-## 预训练细节
-以下以`bert_12L_cn`模型为例，对预训练细节进行说明。
+每个任务我们采用相同的训练参数训练一轮，其他参数如下：
+* max seq length: 128
+* batch size: 4
+* learning rate: 2e-5
+
+> 结论，利用新闻语料[corpus-3]训练
+
+## 预训练分词
+`BERT-Tiny-CN`和`BERT-Mini-CN`这两个模型采用中文按字分词，不进行小写转换。
+
+按词MASK等模型的细节，则以`bert_12L_cn`模型为例，对预训练细节进行说明。
 
 ### 生成词表
 
@@ -230,6 +248,19 @@ def tokenize(self, text):
 
 
 ### 预训练
+
+`BERT-Tiny-CN`和`BERT-Mini-CN`两个模型的训练参数为：
+*  train_batch_size: 32
+*  max_seq_length: 128
+*  max_predictions_per_seq: 20
+*  num_train_steps: 100000
+*  num_warmup_steps: 5000
+*  learning_rate: 2e-5
+
+训练结果如下:  
+* BERT-Tiny: masked_lm_accuracy=22.74%，NSP_accuracy=100%。  
+BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。  
+
 获得以上数据后，截止2021年2月6日，使用BERT-wwm-ext的WordPiece词表（模型），(未来将使用基于通用数据的WordPiece模型)，正式开始预训练BERT。
 之所以叫`bert_12L_cn`是因为仅相比`BERT-wwm-ext`，其余参数没有变动，主要因为计算设备受限。
 使用的命令如下：
