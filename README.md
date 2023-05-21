@@ -68,23 +68,24 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 
 ## 模型下载
 
-| 数据集                          | owner  | model                                | 语言 | 层数| hidden | head | 参数量             |
-|------------------------------|--------|--------------------------------------|------|----|--------|------|-----------------|
-| 新闻[corpus-3]                 | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]  | cn   | 2  | 128    | 2    | 3.2M            |
-| 新闻[corpus-3]                 | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt] | cn   | 4  | 256    | 4    | 8.8M            |
-| 中学阅读理解                       | Brian Shen | [bert_2L_cn]                         | cn   | 2 | 768    | 4    | 16.8M           |
-| 中学阅读理解                       | Brian Shen | [bert_6L_cn]                         | cn   | 6 | 768    | 12   | 45.1M           |
-| 中文维基                         | Google | [bert_google_1_12L_cn]                  | cn   | 12 | 768    | 12   | 102.3M[model-1] |
-| 中文维基                         | Google | [bert_google_2_12L_cn]                   | cn   | 12 | 768    | 12   | 102.3M[model-1] |
-| 中文维基百科，其他百科、新闻、问答   | Brian Shen | [roberta-3L_cn-alpha]                | cn   | 3 | 768    | 12   | 38.5M           |
-| 中学阅读理解                       | Brian Shen | [roberta-3L_cn-beta]                 | cn   | 3| 1024   | 16   | 61.0M           |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_12L_cn]                        | cn   | 12 | 768    | 12   | 102.3M          |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn]                        | cn   | 24 | 1024   | 16   | 325.5M          |
-| QA                           | Brian Shen | [bert_24L_cn-arya]                   | cn   | 24 | 1024   | 16   | 325.5M          |
-| QA                           | Brian Shen | [bert_24L_cn-daenerys]               | cn   | 24 | 1024   | 16   | 325.5M          |
-| QA                           | Brian Shen | [xlnet_6L_cn]                        | cn   | 6  |        |      | 53.5M           |
-| 中文维基百科，其他百科、新闻、问答  | Brian Shen | [xlnet_12L_cn]                       | cn   | 12 |        |      | 117M            |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn]                       | cn   | 24 |        |      | 209M            |
+| 数据集                          | owner      | model                                                     | 语言 | 层数| hidden | head | 参数量      |
+|------------------------------|------------|-----------------------------------------------------------|------|----|--------|------|----------|
+| 新闻[corpus-3]                 | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]                       | cn   | 2  | 128    | 2    | 3.2M     |
+| 新闻[corpus-3]                 | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt]                      | cn   | 4  | 256    | 4    | 8.8M     |
+| 中学阅读理解                       | Brian Shen | [bert_2L_cn]                                              | cn   | 2 | 768    | 4    | 16.8M    |
+| 中学阅读理解                       | Brian Shen | [bert_6L_cn]                                              | cn   | 6 | 768    | 12   | 45.1M    |
+| 中文维基                         | Google     | [chinese_L-12_H-768_A-12_tf],[chinese_L-12_H-768_A-12_pt] | cn   | 12 | 768    | 12   | 102.3M[model-1]   |
+| 中文维基                         | Brian Shen | [bert_tywin_12L_cn]                                       | cn   | 12 | 768    | 12   | 102.3M   |
+| 中文维基                         | Brian Shen | [bert_tyrion_12L_cn]                                      | cn   | 12 | 768    | 12   | 102.3M   |
+| 中文维基百科，其他百科、新闻、问答   | Brian Shen | [roberta-3L_cn-alpha]                                     | cn   | 3 | 768    | 12   | 38.5M    |
+| 中学阅读理解                       | Brian Shen | [roberta-3L_cn-beta]                                      | cn   | 3| 1024   | 16   | 61.0M    |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_sansa_12L_cn]                                       | cn   | 12 | 768    | 12   | 102.3M   |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn]                                             | cn   | 24 | 1024   | 16   | 325.5M   |
+| QA                           | Brian Shen | [bert_24L_cn-arya]                                        | cn   | 24 | 1024   | 16   | 325.5M   |
+| QA                           | Brian Shen | [bert_24L_cn-daenerys]                                    | cn   | 24 | 1024   | 16   | 325.5M   |
+| QA                           | Brian Shen | [xlnet_6L_cn]                                             | cn   | 6  |        |      | 53.5M    |
+| 中文维基百科，其他百科、新闻、问答  | Brian Shen | [xlnet_12L_cn]                                            | cn   | 12 |        |      | 117M     |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn]                                            | cn   | 24 |        |      | 209M     |
 
 
 > **`base`**：12-layer, 768-hidden, 12-heads, 110M parameters  
@@ -104,11 +105,13 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 [bert_mini_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/chinese_L-4_H-256_A-4.tgz
 [bert_2L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_L-2_H-768_A-4_cn.zip
 [bert_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_L-6_H-768_A-12_cn.zip
-[bert_google_1_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_google_1_L-12_H-768_A-12_cn.zip
-[bert_google_2_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_google_2_L-12_H-768_A-12_cn.zip
+[chinese_L-12_H-768_A-12_tf]: https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip
+[chinese_L-12_H-768_A-12_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/chinese_L-12_H-768_A-12.tgz
+[bert_tywin_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_tywin_L-12_H-768_A-12_cn.zip
+[bert_tyrion_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_tyrion_L-12_H-768_A-12_cn.zip
 [roberta-3L_cn-alpha]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-3_H-768_A-12_cn.zip
 [roberta-3L_cn-beta]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-3_H-1024_A-16_cn.zip
-[bert_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-12_H-768_A-12_cn.zip
+[bert_sansa_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_sansa_L-12_H-768_A-12_cn.zip
 [bert_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-24_H-1024_A-16_cn.zip
 [bert_24L_cn-arya]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_arya_L-24_H-1024_A-16_cn.zip
 [bert_24L_cn-daenerys]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_daenerys_L-24_H-1024_A-16_cn.zip
