@@ -81,8 +81,8 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 | 中学阅读理解                       | Brian Shen | [roberta-3L_cn-beta]                                      | cn   | 3| 1024   | 16   | 61.0M    |
 | 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_sansa_12L_cn]                                       | cn   | 12 | 768    | 12   | 102.3M   |
 | 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn]                                             | cn   | 24 | 1024   | 16   | 325.5M   |
-| QA                           | Brian Shen | [bert_24L_cn-arya]                                        | cn   | 24 | 1024   | 16   | 325.5M   |
-| QA                           | Brian Shen | [bert_24L_cn-daenerys]                                    | cn   | 24 | 1024   | 16   | 325.5M   |
+| QA                           | Brian Shen | [bert_arya_24L_cn]                                            | cn   | 24 | 1024   | 16   | 325.5M   |
+| QA                           | Brian Shen | [bert_daenerys_24L_cn]                                    | cn   | 24 | 1024   | 16   | 325.5M   |
 | QA                           | Brian Shen | [xlnet_6L_cn]                                             | cn   | 6  |        |      | 53.5M    |
 | 中文维基百科，其他百科、新闻、问答  | Brian Shen | [xlnet_12L_cn]                                            | cn   | 12 |        |      | 117M     |
 | 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn]                                            | cn   | 24 |        |      | 209M     |
@@ -113,8 +113,8 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 [roberta-3L_cn-beta]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-3_H-1024_A-16_cn.zip
 [bert_sansa_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_sansa_L-12_H-768_A-12_cn.zip
 [bert_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-24_H-1024_A-16_cn.zip
-[bert_24L_cn-arya]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_arya_L-24_H-1024_A-16_cn.zip
-[bert_24L_cn-daenerys]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_daenerys_L-24_H-1024_A-16_cn.zip
+[bert_arya_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_arya_L-24_H-1024_A-16_cn.zip
+[bert_daenerys_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_daenerys_L-24_H-1024_A-16_cn.zip
 [xlnet_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_6L_cn.tgz
 [xlnet_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_12L_cn.tgz
 [xlnet_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_24L_cn.tgz
