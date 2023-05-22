@@ -14,7 +14,7 @@
 
 
 ## 新闻
-**2023/5/22 发布夜王BERT: bert_night-king_36L_cn**  
+**2023/5/22 发布夜王BERT: bert_night-king_36L_cn,包括tf、pytorch模型。**  
 中文模型bert_night-king：其详细参数为36-layer, 1024-hidden, 16-heads, 476.7M parameters
 
 <details>
