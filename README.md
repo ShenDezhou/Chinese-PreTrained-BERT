@@ -68,33 +68,36 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 
 ## 模型下载
 
-| 数据集                          | owner      | model                                                     | 语言 | 层数| hidden | head | 参数量      |
-|------------------------------|------------|-----------------------------------------------------------|------|----|--------|------|----------|
-| 新闻[corpus-3]                 | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]                       | cn   | 2  | 128    | 2    | 3.2M     |
-| 新闻[corpus-3]                 | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt]                      | cn   | 4  | 256    | 4    | 8.8M     |
-| 中学阅读理解                       | Brian Shen | [bert_2L_cn]                                              | cn   | 2 | 768    | 4    | 16.8M    |
-| 中学阅读理解                       | Brian Shen | [bert_6L_cn]                                              | cn   | 6 | 768    | 12   | 45.1M    |
-| 中文维基                         | Google     | [chinese_L-12_H-768_A-12_tf],[chinese_L-12_H-768_A-12_pt] | cn   | 12 | 768    | 12   | 102.3M[model-1]   |
-| 中文维基                         | Brian Shen | [bert_tywin_12L_cn]                                       | cn   | 12 | 768    | 12   | 102.3M   |
-| 中文维基                         | Brian Shen | [bert_tyrion_12L_cn]                                      | cn   | 12 | 768    | 12   | 102.3M   |
-| 中文维基百科，其他百科、新闻、问答   | Brian Shen | [roberta-3L_cn-alpha]                                     | cn   | 3 | 768    | 12   | 38.5M    |
-| 中学阅读理解                       | Brian Shen | [roberta-3L_cn-beta]                                      | cn   | 3| 1024   | 16   | 61.0M    |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_sansa_12L_cn]                                       | cn   | 12 | 768    | 12   | 102.3M   |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn]                                             | cn   | 24 | 1024   | 16   | 325.5M   |
-| QA                           | Brian Shen | [bert_arya_24L_cn]                                            | cn   | 24 | 1024   | 16   | 325.5M   |
-| QA                           | Brian Shen | [bert_daenerys_24L_cn]                                    | cn   | 24 | 1024   | 16   | 325.5M   |
-| QA                           | Brian Shen | [xlnet_6L_cn]                                             | cn   | 6  |        |      | 53.5M    |
-| 中文维基百科，其他百科、新闻、问答  | Brian Shen | [xlnet_12L_cn]                                            | cn   | 12 |        |      | 117M     |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn]                                            | cn   | 24 |        |      | 209M     |
+| 数据集               | owner      | model                                                     | 语言 | 层数 | hidden | head | 参数量             |
+|-------------------|------------|-----------------------------------------------------------|------|----|--------|------|-----------------|
+| 新闻[corpus-3]      | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]                       | cn   | 2  | 128    | 2    | 3.2M            |
+| 新闻[corpus-3]      | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt]                      | cn   | 4  | 256    | 4    | 8.8M            |
+| 中学阅读理解            | Brian Shen | [bert_2L_cn]                                              | cn   | 2  | 768    | 4    | 16.8M           |
+| 中学阅读理解            | Brian Shen | [bert_6L_cn]                                              | cn   | 6  | 768    | 12   | 45.1M           |
+| 中文维基              | Google     | [chinese_L-12_H-768_A-12_tf],[chinese_L-12_H-768_A-12_pt] | cn   | 12 | 768    | 12   | 102.3M[model-1] |
+| 中文维基              | Brian Shen | [bert_tywin_12L_cn]                                       | cn   | 12 | 768    | 12   | 102.3M          |
+| 中文维基              | Brian Shen | [bert_tyrion_12L_cn]                                      | cn   | 12 | 768    | 12   | 102.3M          |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [roberta-3L_cn-alpha]                                     | cn   | 3  | 768    | 12   | 38.5M           |
+| 中学阅读理解            | Brian Shen | [roberta-3L_cn-beta]                                      | cn   | 3  | 1024   | 16   | 61.0M           |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_sansa_12L_cn]                                       | cn   | 12 | 768    | 12   | 102.3M          |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn]                                             | cn   | 24 | 1024   | 16   | 325.5M          |
+| QA                | Brian Shen | [bert_arya_24L_cn]                                        | cn   | 24 | 1024   | 16   | 325.5M          |
+| QA                | Brian Shen | [bert_daenerys_24L_cn]                                    | cn   | 24 | 1024   | 16   | 325.5M          |
+| 新闻[corpus-4]      | Brian Shen | [bert_night-king_36L_cn]                                 | cn   | 36 | 1024   | 16   | 476.7M          |
+| QA                | Brian Shen | [xlnet_6L_cn]                                             | cn   | 6  |        |      | 53.5M           |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_12L_cn]                                            | cn   | 12 |        |      | 117M            |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn]                                            | cn   | 24 |        |      | 209M            |
 
 
-> **`base`**：12-layer, 768-hidden, 12-heads, 110M parameters  
-> **`large`**：24-layer, 1024-hidden, 16-heads, 330M parameters
- 
+> **`base`**：12-layer, 768-hidden, 12-heads, 102.3M parameters  
+> **`large`**：24-layer, 1024-hidden, 16-heads, 325.5M parameters
+> **`giant`**：36-layer, 1024-hidden, 16-heads, 476.7M parameters
+
 > [corpus-1] 通用数据包括：问答等数据，总大小12.5MB，记录数1万，字数7.2万。  
 > [corpus-2] 加载pytorch和tf2模型时，如transformers加载报xla错误，请自行修改config.json中`xla_device`的值，如在gpu上微调需要设为false，如在tpu上微调，则需要设为true。  
 > [corpus-3] 新闻语料：5000篇2021年新闻，大小约13MB。  
-> [model-1] Chinese-Bert-Base: 谷歌中文BERT-Base的参数量经计算为102.3M，而原论文为110M。此处计算方法统计TF转Pytorch后包含Embedding的全部参数量，谷歌原文可能有误。统计脚本[count.py](/count.py)。
+> [corpus-4] 新闻语料：多篇2021年新闻，大小约200GB。
+> [model-1] Chinese-Bert-Base: 中文BERT-Base的参数量经计算为102.3M，而谷歌英文BERT-Base参数量为110M，其差距应为词表数不一致导致的。统计脚本[count.py](/count.py)。
 
  
 
@@ -115,6 +118,7 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 [bert_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-24_H-1024_A-16_cn.zip
 [bert_arya_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_arya_L-24_H-1024_A-16_cn.zip
 [bert_daenerys_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_daenerys_L-24_H-1024_A-16_cn.zip
+[bert_night-king_36L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_night-king_L-36_H-1024_A-16_cn.zip
 [xlnet_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_6L_cn.tgz
 [xlnet_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_12L_cn.tgz
 [xlnet_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_24L_cn.tgz
