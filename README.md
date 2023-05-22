@@ -14,15 +14,19 @@
 
 
 ## 新闻
-**2023/5/16 发布中文预训练模型BERT-Tiny-CN，BERT-Mini-CN**。  
+**2023/5/22 发布夜王BERT: bert_night-king_36L_cn**  
+中文模型bert_night-king：其详细参数为36-layer, 1024-hidden, 16-heads, 476.7M parameters
+
+<details>
+<summary>历史新闻</summary>
+
+2023/5/16 发布中文预训练模型BERT-Tiny-CN，BERT-Mini-CN。  
 由新闻语料训练100k步。超参数与谷歌BERT基本一致。  
 BERT-Tiny: masked_lm_accuracy=22.74%，NSP_accuracy=100%。  
 BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。  
 上述分词MASK方法使用谷歌默认方法：区分大小写，按中文字分词。
-词表采用谷歌中文默认的21128个词的词表。
+词表采用谷歌中文默认的21128个词的词表。  
 
-<details>
-<summary>历史新闻</summary>
 2023/5/9 修复下载链接
 2021/2/6 所有模型已支持Pytorch和Tensorflow1以及Tensorflow2，请通过transformers库进行调用或下载。https://huggingface.co/
 2021/2/6 本目录发布的模型未来可接入[Huggingface-Transformers](https://github.com/huggingface/transformers)，查看[快速加载](#快速加载)
