@@ -15,7 +15,8 @@
 
 ## 新闻
 **2023/5/23 发布Stark-BERT: Eddard, Lyarra, Rickard, Lyanna,包括tf、pytorch模型。**  
-12-layer, 768-hidden, 12-heads, 102.3M/105.1M parameters  
+12-layer, 768-hidden, 12-heads, 102.3M/105.1M parameters 
+训练20万步。
 
 <details>
 <summary>历史新闻</summary>
