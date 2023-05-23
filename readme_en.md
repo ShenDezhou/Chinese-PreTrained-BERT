@@ -4,115 +4,164 @@
     <img src="./pics/banner.svg" width="500"/>
 </p>
 
-This project provides a Chinese BERT model, which aims to enrich Chinese natural language processing resources and provide a variety of Chinese pretraining models.
-We welcome all experts and scholars to download and use them, and work together to foster and develop the construction of Chinese resources.
+This project provides a Chinese-oriented BERT pre-training model, which aims to enrich Chinese natural language processing resources and provide a variety of Chinese pre-training model options. Experts and scholars are welcome to download and use, and jointly promote and develop the construction of Chinese resources.
+This project is based on Google's official BERT: https://github.com/google-research/bert
+Other related resources: - Chinese BERT pre-training model: https://github.com/ymcui/Chinese-BERT-wwm
 
-This project is based on Google's official bert: https://github.com/google-research/bert
-
-Other related resources：
-- Chinese BERT pre-trained model：https://github.com/ymcui/Chinese-BERT-WWM
-
-See more published resources：https://github.com/ 
 
 ## NEWS
-**2021/2/6 All models support pytorch, tensorflow1 and tensorflow2. Please call or download them through the transformers library. https://huggingface.co/**
+
+**2023/5/23 Release Stark-BERT: Eddard, Lyarra, Rickard, Lyanna, including tf, pytorch models.**  
+12-layer, 768-hidden, 12-heads, 102.3M/105.1M parameters training 200,000 steps.
+
 
 
 <details>
 <summary>Historical news</summary>
+2023/5/22 Release Night King BERT: bert_night-king_36L_cn, including tf and pytorch models. 
+Chinese model bert_night-king: its detailed parameters are 36-layer, 1024-hidden, 16-heads, 476.7M parameters 
+
+2023/5/16 released Chinese pre-training models BERT-Tiny-CN, BERT-Mini-CN. 
+
+Trained for 100k steps from the news corpus. The hyperparameters are basically the same as Google BERT. 
+
+* BERT-Tiny: masked_lm_accuracy=22.74%, NSP_accuracy=100%. 
+* BERT-Mini: masked_lm_accuracy=33.54%, NSP_accuracy=100%. 
+* The above word segmentation MASK method uses Google's default method: case-sensitive, word segmentation according to Chinese characters. '
+* The vocabulary adopts the default vocabulary of 21128 words in Google Chinese.  
+
+2023/5/9 Fix download link 
+
+2021/2/6 All models already support Pytorch, Tensorflow1 and Tensorflow2, please call or download through the transformers library.
+
 2021/2/6The models published in this directory can be accessed to [hugging face transformers](https://github.com/huggingface/transformers) in the future, view [quick load](#quick load)
 
-2021/2/6 `bert_12L_cn`It can be downloaded. View [Model Download](#model download)
-
-2021/2/6 provides a Chinese 'BERT tiny' model trained on a small-scale general corpus (12.5mb) [TBD]. Check [Model Download] (# model download)
+2021/2/6 `bert_12L_cn`It can be downloaded.
 </details>
 
 ## Content guidance
 |Chapter | description|
 |-|-|
-|[introduction] (# introduction) | introduction to the basic principle of BERT WWM|
-|[Model Download] (# model download) | provides the Chinese pre-trained BERT download address|
-|[baseline system effect] (# baseline system effect) | some baseline system effects are listed|
-|[pre-trained details] (# pre-trained details) | relevant description of pre-trained details|
-|[fine tuning details of downstream tasks] (# fine tuning details of downstream tasks) | description of fine tuning details of downstream tasks|
-|[FAQ] (#faq) | FAQ|
-|[reference] (# reference) | technical report of this catalogue|
+|[introduction](#introduction) | Introduce the basic principles of BERT-wwm|
+|[Model Download](#model download) | The Chinese pre-training BERT download address is provided|
+|[baseline system effect](#baseline system effect) | Some baseline system effects are listed|
+|[pre-trained details](#pre-trained details) | Description of pre-training details|
+|[fine tuning details of downstream tasks](#fine tuning details of downstream tasks) | A description of downstream task fine-tuning details|
+|[FAQ](#faq) | FAQ|
+|[reference](#reference) | Technical reports for this catalog|
 
 
 ## Introduction
-**Whole word masking (WWM) * *, temporarily translated as' full word mask 'or' whole word mask ', is an upgraded version of best released by Google on May 31, 2019, which mainly changes the training sample generation strategy in the original pre-trained stage.
-In short, the original word segmentation method based on wordpiece will cut a complete word into several sub words, which will be randomly masked when generating training samples.
-In the whole word mask, if part of the wordpiece sub word of a complete word is masked, other parts of the same word will also be masked, that is, the whole word mask.
-**It should be noted that the mask here refers to the generalized mask (replace with [mask]; keep the original word; randomly replace with another word), not limited to the case that the word is replaced with '[mask]' tag.
-For more detailed description and examples, please refer to: # 4]（ https://github.com/ymcui/Chinese-BERT-WWM/issues/4 )**
-Similarly, in Google's official "best base, Chinese", Chinese is segmented at the granularity of * * character * *, without considering the traditional Chinese word segmentation (CWS) in NLP.
-We apply the whole word mask method to Chinese, use Chinese Wikipedia (including simplified and traditional) for training, and use [HTU LTP]（ http://ltp.ai ）As a word segmentation tool, that is to say, mask all the Chinese characters that make up the same * * word * *.
-The following text shows an example of the generation of the full word mask.
-**Note: for convenience of understanding, only the case of replacing with [mask] label is considered in the following example.**
+
+Whole Word Masking (wwm) , temporarily translated as whole word Mask or whole word Mask , is an upgraded version of BERT released by Google on May 31, 2019, which mainly changes the training sample generation strategy in the original pre-training stage. To put it simply, the original WordPiece-based word segmentation method will divide a complete word into several subwords. When generating training samples, these divided subwords will be randomly masked. In the whole word Mask , if part of a WordPiece subword of a complete word is masked, other parts belonging to the same word will also be masked, that is, the whole word Mask .
+It should be noted that the mask here refers to a generalized mask (replaced with [MASK]; keep the original vocabulary; randomly replaced with another word), not limited to the case where words are replaced with [MASK] tags . For more detailed instructions and examples, please refer to: #4
+the BERT-base, Chinese officially released by Google , Chinese is segmented at the granularity of characters , and Chinese word segmentation (CWS) in traditional NLP is not considered. We applied the method of full-word Mask to Chinese, used Chinese Wikipedia (including Simplified and Traditional) for training, and used a word segmentation tool, that is, Mask all the Chinese characters that make up the same word .
+
+
+The following text shows an example of the generation of the full word Mask . Note: For ease of understanding, only the [MASK] tag is considered in the following example.
+
 |Description | example|
 | :------- | :--------- |
-|The original text | uses a language model to predict the probability of the next word. |
-|Word segmentation text | uses language models to predict the probability of the next word. |
-|The original mask input | uses the language [mask] type to [mask] test the pro [mask] # liteness of the next word. |
-|Full word mask input | use the language [mask] [mask] to [mask] [mask] of the next word. |
+|The original text | Use a language model to predict the probability of the next word. |
+|Word segmentation text | Use a language model to predict the probability of the next word. |
+|The original mask input | Use the language [MASK] type to [MASK] measure the pro [MASK] ##lity of the next word. |
+|Full word mask input | Use language [MASK] [MASK] to [MASK] [MASK] [MASK] [MASK] [MASK] of the next word. |
 
 ## Model Download
-| datasets                             | owner  | model             | language | layers | parameters |
-|------------------------------------|--------|-------------------|------|------|--------|
-| 中学阅读理解                       | D-Shen | [bert_3L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_3L_cn.tgz)        | cn   | 3    | 27.5M  |
-| 中学阅读理解                       | D-Shen | [bert_6L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_6L_cn.tgz)        | cn   | 6    | 55M    |
-| 中文维基                           | Google | [bert_12L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_12L_cn-alpha.tgz) | cn   | 12   | 110M   |
-| 中文维基                           | Google | [bert_12L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_12L_cn-beta.tgz)  | cn   | 12   | 110M   |
-| 中文维基百科，其他百科、新闻、问答 | D-Shen | [bert-3L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert-3L_cn-alpha.tgz)  | cn   | 3    | 27.5M  |
-| 中学阅读理解                       | D-Shen | [bert-3L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert-3L_cn-beta.tgz)   | cn   | 3    | 27.5M  |
-| 中文维基百科，其他百科、新闻、问答 | D-Shen | [bert_12L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_12L_cn.tgz)       | cn   | 12   | 110M   |
-| 中文维基百科，其他百科、新闻、问答 | D-Shen | [bert_24L_cn-alpha](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_24L_cn-alpha.tgz) | cn   | 24   | 330M   |
-| QA                                 | D-Shen | [bert_24L_cn-beta](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_24L_cn-beta.tgz)  | cn   | 24   | 330M   |
-| QA                                 | D-Shen | [bert_24L_cn-gamma](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//bert_24L_cn-gamma.tgz) | cn   | 24   | 330M   |
-| QA                                 | D-Shen | [xlnet_6L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//xlnet_6L_cn.tgz)       | cn   | 6    | 53.5M  |
-| 中文维基百科，其他百科、新闻、问答 | D-Shen | [xlnet_12L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//xlnet_12L_cn.tgz)      | cn   | 12   | 117M   |
-| 中文维基百科，其他百科、新闻、问答 | D-Shen | [xlnet_24L_cn](https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt//xlnet_24L_cn.tgz)      | cn   | 24   | 209M   |
 
 
-> **`base`**：12-layer, 768-hidden, 12-heads, 110M parameters  
-> **`large`**：24-layer, 1024-hidden, 16-heads, 330M parameters  
-> 
-> [1] 通用数据包括：问答等数据，总大小12.5MB，记录数1万，字数7.2万。  
-> [2] 加载pytorch和tf2模型时，如transformers加载报xla错误，请自行修改config.json中`xla_device`的值，如在gpu上微调需要设为false，如在tpu上微调，则需要设为true。
+| dataset               | owner      | model                                                     | language | layers | hidden | head | Parameter amount             |
+|-------------------|------------|-----------------------------------------------------------|------|----|--------|------|-----------------|
+| news[corpus-3]      | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]                       | cn   | 2  | 128    | 2    | 3.2M            |
+| news[corpus-3]      | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt]                      | cn   | 4  | 256    | 4    | 8.8M            |
+| Middle School Reading Comprehension            | Brian Shen | [bert_2L_cn]                                              | cn   | 2  | 768    | 4    | 16.8M           |
+| Middle School Reading Comprehension            | Brian Shen | [bert_6L_cn]                                              | cn   | 6  | 768    | 12   | 45.1M           |
+|  Chinese Wikipedia              | Google     | [chinese_L-12_H-768_A-12_tf],[chinese_L-12_H-768_A-12_pt] | cn   | 12 | 768    | 12   | 102.3M[model-1] |
+|  Chinese Wikipedia              | Brian Shen | [bert_tywin_12L_cn]                                       | cn   | 12 | 768    | 12   | 102.3M          |
+|  Chinese Wikipedia              | Brian Shen | [bert_tyrion_12L_cn]                                      | cn   | 12 | 768    | 12   | 102.3M          |
+| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [roberta-3L_cn-alpha]                                     | cn   | 3  | 768    | 12   | 38.5M           |
+| Middle School Reading Comprehension            | Brian Shen | [roberta-3L_cn-beta]                                      | cn   | 3  | 1024   | 16   | 61.0M           |
+| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [bert_sansa_12L_cn]                                       | cn   | 12 | 768    | 12   | 102.3M          |
+| Chinese comments              | Brian Shen | [bert_eddard_12L_cn_tf],[bert_eddard_12L_cn_pt]           | cn   | 12 | 768    | 12   | 102.3M          |
+| Chinese comments              | Brian Shen | [bert_lyarra_12L_cn_tf],[bert_lyarra_12L_cn_pt]           | cn   | 12 | 768    | 12   | 105.1M          |
+| Chinese comments              | Brian Shen | [bert_rickard_12L_cn_tf],[bert_rickard_12L_cn_pt]         | cn   | 12 | 768    | 12   | 105.1M          |
+| Chinese comments              | Brian Shen | [bert_lyanna_12L_cn_tf],[bert_lyanna_12L_cn_pt]           | cn   | 12 | 768    | 12   | 105.1M          |
+| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [bert_24L_cn]                                             | cn   | 24 | 1024   | 16   | 325.5M          |
+| QA                | Brian Shen | [bert_arya_24L_cn]                                        | cn   | 24 | 1024   | 16   | 325.5M          |
+| QA                | Brian Shen | [bert_daenerys_24L_cn]                                    | cn   | 24 | 1024   | 16   | 325.5M          |
+| news[corpus-4]      | Brian Shen | [bert_night-king_36L_cn_tf],[bert_night-king_36L_cn_pt]   | cn   | 36 | 1024   | 16   | 476.7M          |
+| QA                | Brian Shen | [xlnet_6L_cn]                                             | cn   | 6  |        |      | 53.5M           |
+| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [xlnet_12L_cn]                                            | cn   | 12 |        |      | 117M            |
+| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [xlnet_24L_cn]                                            | cn   | 24 |        |      | 209M            |
+
+
+> base : 12-layer, 768-hidden, 12-heads, 102.3M parameters 
+> large : 24-layer, 1024-hidden, 16-heads, 325.5M parameters 
+> giant : 36-layer, 1024-hidden, 16-heads, 476.7M parameters
+
+> [corpus-1] General data includes: questions and answers and other data, the total size is 12.5MB, the number of records is 10,000, and the number of words is 72,000. 
+> [corpus-2] When loading pytorch and tf2 models, if transformers load xla error, please modify the value of xla_device in config.json by yourself . If you fine-tune on gpu, you need to set it to false. If you fine-tune on tpu, you need to set it to true. 
+> [corpus-3] news corpus: 5000 pieces of 2021 news, about 13MB in size. 
+> [corpus-4] News corpus: multiple news articles in 2021, about 200GB in size. 
+> [model-1] Chinese-Bert-Base: The parameter volume of Chinese BERT-Base is calculated to be 102.3M, while the parameter volume of Google English BERT-Base is 110M. The difference should be caused by the inconsistent number of vocabulary. Statistics script count.py .
+
+
+[bert_tiny_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/chinese_L-2_H-128_A-2.zip
+[bert_tiny_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/chinese_L-2_H-128_A-2.tgz
+[bert_mini_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/chinese_L-4_H-256_A-4.zip
+[bert_mini_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/chinese_L-4_H-256_A-4.tgz
+[bert_2L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_L-2_H-768_A-4_cn.zip
+[bert_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_L-6_H-768_A-12_cn.zip
+[chinese_L-12_H-768_A-12_tf]: https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip
+[chinese_L-12_H-768_A-12_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/chinese_L-12_H-768_A-12.tgz
+[bert_tywin_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_tywin_L-12_H-768_A-12_cn.zip
+[bert_tyrion_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_tyrion_L-12_H-768_A-12_cn.zip
+[roberta-3L_cn-alpha]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-3_H-768_A-12_cn.zip
+[roberta-3L_cn-beta]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-3_H-1024_A-16_cn.zip
+[bert_sansa_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_sansa_L-12_H-768_A-12_cn.zip
+[bert_eddard_12L_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta_eddard_L-12_H-768_A-12_cn.zip
+[bert_eddard_12L_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_eddard_L-12_H-768_A-12_cn.zip
+[bert_lyarra_12L_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta_lyarra_L-12_H-768_A-12_cn_tf.zip
+[bert_lyarra_12L_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_lyarra_L-12_H-768_A-12_cn.zip
+[bert_rickard_12L_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta_rickard_L-12_H-768_A-12_cn_tf.zip
+[bert_rickard_12L_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_rickard_L-12_H-768_A-12_cn.zip
+[bert_lyanna_12L_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta_lyanna_L-12_H-768_A-12_cn_tf.zip
+[bert_lyanna_12L_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_lyanna_L-12_H-768_A-12_cn.zip
+[bert_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-24_H-1024_A-16_cn.zip
+[bert_arya_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_arya_L-24_H-1024_A-16_cn.zip
+[bert_daenerys_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_daenerys_L-24_H-1024_A-16_cn.zip
+[bert_night-king_36L_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta_night-king_L-36_H-1024_A-16_cn_tf.zip
+[bert_night-king_36L_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_night-king_L-36_H-1024_A-16_cn.zip
+[xlnet_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_6L_cn.tgz
+[xlnet_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_12L_cn.tgz
+[xlnet_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_24L_cn.tgz
+
 
 ### PyTorch/Tensorflow Versions
 
-Pytorch version is provided.
+Some provide Tensorflow and Pytorch versions, and some only provide PyTorch versions.
 
-### instructions
 
-The Chinese mainland recommends the use of Baidu cloud download points. Overseas users recommend using Google download points, and the `bert_12L_cn` model file size is about**454M** and**1.3G**. Take tensorflow version of `bert WWM base QA, Chinese` as an example. After downloading, unzip the zip file to get the following results:
+### Instructions for use
+
+The bert_12L_cn model file size is about 454M and 1.3G .
+The TensorFlow version is:
 ```
 tf_chinese_BERT_base_L-12_H-768_A-12.zip
-    |- checkpoint                                           # 存盘点信息
-    |- BERT_tiny_chinese.ckpt.data-00000-of-00001          # 模型权重
-    |- BERT_tiny_chinese.ckpt.index                        # 模型index信息
-    |- BERT_tiny_chinese.ckpt.data                         # 模型meta信息
-    |- vocab.txt                                            # 分词词表
+    |- bert_config.json                                    # Model parameters
+    |- bert_model.ckpt.data-00000-of-00001          # Model weights
+    |- bert_model.ckpt.index                        # Model Index
+    |- bert_model.ckpt.data                         # Model meta
+    |- vocab.txt                                            # Word segmentation vocabulary
 ```
 
-TensorFlow2版本为：
-
-```
-tf2_chinese_BERT_base_L-12_H-768_A-12.zip
-    |- tf_model.h5           # 模型权重
-    |- config.json           # 模型参数
-    |- vocab.txt             # 分词词表
-```
-
-Pytorch版本为：
+Pytorch Version：
 
 ```
 chinese_BERT_base_L-12_H-768_A-12.zip
-    |- pytorch_model.bin     # 模型权重
-    |- config.json           # 模型参数
-    |- training_args.bin     # 模型训练信息
-    |- vocab.txt             # 分词词表
+    |- pytorch_model.bin     # Model weights
+    |- config.json           # Model parameters
+    |- vocab.txt             # Word segmentation vocabulary
 ```
 
 ###Fast loading
@@ -128,19 +177,41 @@ model = BertModel.from_pretrained("MODEL_NAME")
 ```
 
 
-## Baseline system effect
-In order to compare the baseline effect, we conducted tests on the following Chinese data sets. This paper compares Chinese best WWM ext, BERT base and BERT tiny.
-Limited time and energy, and can not cover more categories of tasks, please try.
-
-## pre-trained details
-The following takes the 'BERT tiny' model as an example to explain the details of pre-trained.
+## Baseline System Effects
+In order to compare the baseline performance, we tested on the following English datasets. Compared with English BERT-Tiny, Chinese BERT-Tiny, Chinese BERT-Mini, Chinese BERT-wwm-ext, BERT-base and bert_12L_cn of this project.
 
 
-### Generating Thesaurus
-According to the official tutorial steps of best, you need to first use [word piece](https://pypi.org/project/tokenizers/) Generate a vocabulary.
-Wordpiece is a subword tagging algorithm for Bert, Distilbert and Electra. The algorithm is summarized in Japanese and Korean speech search (Schuster et al., 2012), which is very similar to BPE. Wordpiece first initializes the vocabulary to contain each character in the training data, and gradually learns a given number of merge rules. Unlike BPE, wordpiece does not select the most frequent symbol pairs, but the ones that maximize the possibility of adding training data to the vocabulary.
-So what does that mean? Referring to the previous example, maximizing the possibility of training data is equivalent to finding a pair of symbols, and the probability of which is divided by the probability of its first symbol and then divided by the probability of its second symbol is the largest of all pairs of symbols. E. Only when the probability of "UG" divided by "U" and "g" is greater than any other sign pair, "U" followed by "g" will be merged. Intuitively, wordpiece is slightly different from BPE in that it evaluates what it loses by merging two symbols to make sure it's worth it.
-In this project, we use the vocabulary size of 21128, and the rest of the parameters use the default configuration in the official example.
+| Model        | Score |  CoLA  | SST-2 |  MRPC   | STS-B |  QQP  |MNLI-m| MNLI-mm |QNLI(v2)|  RTE  | WNLI  |
+|--------------|:-----:|:------:|:-----:|:-------:|:-----:|:-----:|:----:|:-------:|:------:|:-----:|:-----:|
+| BERT-Tiny[1] | 65.13 | 69.12  | 79.12 |  70.34  | 42.73 | 79.81 |64.60 |  66.47  | 77.63  | 59.21 | 42.25 |
+| BERT-Mini[1] | 65.93 | 69.12	 | 83.60 | 	72.79  | 45.27 | 76.01 |71.42 |  56.06  | 83.21  | 61.01 | 40.85 |
+| BERT-Tiny-CN | 56.00 | 69.12  | 71.10 | 	68.38  | 24.33 | 73.79 |49.23 |  49.79  | 59.30  | 51.26 | 43.66 |
+| BERT-Mini-CN | 58.70 | 69.12	 | 75.91 | 	68.38  | 25.40 | 76.09 |55.24 |  55.09  | 56.33  | 49.10 | 56.34 |
+
+> [1] This is Google's BERT-Tiny/Mini model. On the GLUE test data set, the CoLA score is 0. This evaluation uses the same script to re-evaluate all models to compare the results.
+
+We use the same training parameters for one round of training for each task, and other parameters are as follows:   
+
+* max seq length: 128
+* batch size: 4 
+* learning rate: 2e-5
+
+In conclusion, the Chinese BERT-Tiny/Mini trained using the news corpus [corpus-3] has achieved competitive results compared with the BERT-Tiny/Mini given by Google on the GLUE dataset.   
+Compared with Google BERT-Tiny/Mini: Chinese BERT-Tiny(-9.13%/-9.93%), Chinese BERT-Mini(-6.43%/-7.23%); since these two models are trained on Chinese corpus It has achieved this effect in the English GLUE evaluation, which proves the ability of the model in English tasks. Analyze why the Chinese model can be fine-tuned on English tasks, because the Chinese model uses a vocabulary of 21K words from Google's official Chinese model, which contains a large number of common English words, so it has the potential to represent English text. However, since this model is not designed for English, its representation ability is 9.13%/9.93% and 6.43%/7.23% worse than the Google BERT-Tiny model, respectively.
+
+
+## pre-trained word segmentation
+TBERT-Tiny-CN and BERT-Mini-CN use Chinese word segmentation without lowercase conversion.
+According to the details of the word MASK and other models, the bert_12L_cn model is taken as an example to illustrate the pre-training details.
+
+
+### generate vocabulary
+According to the official BERT tutorial steps, you first need to use Word Piece to generate a vocabulary. WordPiece is a subword tokenization algorithm for BERT, DistilBERT, and Electra. The algorithm, outlined in Japanese and Korean Speech Search (Schuster et al., 2012), is very similar to BPE.   
+WordPiece first initializes the vocabulary to contain each character in the training data, and gradually learns a given number of merging rules. Unlike BPE, WordPiece does not choose the most frequent symbol pair, but the symbol pair that maximizes the likelihood of adding the training data to the vocabulary. So what exactly does this mean? Referring to the previous example, maximizing the likelihood of the training data is equivalent to finding the pair of symbols whose probability divided by the probability of its first symbol and then divided by the probability of its second symbol is the greatest of all symbol pairs. E. "u" followed by "g" will only merge if the probability of "ug" divided by "u", "g" is greater than any other symbol pair.   
+Intuitively, WordPiece is slightly different from BPE in that it evaluates what it has lost by merging two symbols to make sure it is worth it.  
+In this project, the vocabulary size we use is 21128, and the rest of the parameters adopt the default configuration in the official example.  
+
+
 ```
 # Initialize a tokenizer
 tokenizer = BertWordPieceTokenizer()
@@ -158,7 +229,8 @@ tokenizer.train(files=paths, vocab_size=21_128, min_frequency=0, special_tokens=
 ```
 
 ### Algorithm of generating vocabulary
-Furthermore, according to WP rules, an English word can be divided into several high-frequency segments. The sample code is as follows:
+The following methods are not implementations of tokenizers, as expressed.   
+Furthermore, for an English word (Chinese word segmentation is the same), according to the WP rule, it can be divided into multiple high-frequency segments. The sample code is as follows:
 
 ```
 def tokenize(self, text):
@@ -206,9 +278,15 @@ def tokenize(self, text):
 ```
 
 ### pretraining
-After obtaining the above data, as of February 6, 2021, using the wordpiece vocabulary (model) of BERT WWM ext (the wordpiece model based on general data will be used in the future), the pre-trained of BERT will be officially started.
-The reason why it is called 'BERT WWM base QA' is that compared with 'BERT WWM ext', other parameters have not changed, mainly because of the limitation of computing devices.
+The training parameters of the BERT-Tiny-CN and BERT-Mini-CN models are: * train_batch_size: 32 * max_seq_length: 128 * max_predictions_per_seq: 20 * num_train_steps: 100000 * num_warmup_steps: 5000 * learning_rate: 2e - 5
+The training results are as follows:   
+* BERT-Tiny: masked_lm_accuracy=22.74%, NSP_accuracy=100%. 
+* BERT-Mini: masked_lm_accuracy=33.54%, NSP_accuracy=100%.
+
+After obtaining the above data, as of February 6, 2021, use the WordPiece vocabulary (model) of BERT-wwm-ext (the WordPiece model based on general data will be used in the future), and officially start pre-training BERT.  
+The reason why it is called bert_12L_cn is because only compared with BERT-wwm-ext , the rest of the parameters have not changed, mainly because the computing equipment is limited.  
 The command used is as follows:
+
 ```
     from transformers import (
         CONFIG_MAPPING,
@@ -296,68 +374,53 @@ The command used is as follows:
 ```
 
 
-## Finetuning details of downstream tasks
+## Downstream task fine-tuning details
 
-The device used for downstream task fine tuning is Google cloud GPU (16g HBM). The following briefly describes the configuration of each task fine tuning.
-
-**Please refer to [TBD] for relevant codes Project.**
+The device used for downstream task fine-tuning is Google Cloud GPU (16G HBM).  
+The configuration of each task fine-tuning is briefly described below. See the project for the relevant code.
 
 
 
 ## FAQ
 
-**Q: How to use this model?**
-A: Google released the Chinese BERT how to use, this is how to use.
-**The text does not need word segmentation, and WWM only affects the pre-trained process and does not affect the input of downstream tasks.**
+**Q: How to use this model?**  
+A: How to use the Chinese BERT released by Google, this is how to use it. The text does not need to be segmented, and wwm only affects the pre-training process and does not affect the input of downstream tasks.
 
-**Q: Is there a pre-trained code available?**
-A: Unfortunately, I can't provide the relevant code, the implementation can refer to [#10]（ https://github.com/ymcui/Chinese-BERT-WWM/issues/10 ）And [# 13]（ https://github.com/ymcui/Chinese-BERT-WWM/issues/13 )。
+**Q: Is there any pre-training code provided?**  
+A: Unfortunately, I can't provide the relevant code, please refer to #10 and #13 for implementation .
 
-**Q: Where can XX data set be downloaded?**
-A: Please check the 'data' directory and the task directory` README.md `The data source is indicated. For copyrighted content, please search by yourself or contact the original author for data.
+**Q: Where can I download the XX dataset?**  
+A: Please check the data directory. The README.md under the task directory indicates the data source. For copyrighted content, please search by yourself or contact the original author to obtain the data.
 
-**Q: Are there any plans to release larger models? For example, the best large WWM version?**
+**Q: Will there be plans to release a larger model? Such as BERT-large-wwm version?**  
 A: If we get better results from the experiment, we will consider releasing a larger version.
 
-**Q: You're lying! Results cannot be reproduced 😂**
-A: In the downstream task, we use the simplest model. For example, for classification tasks, we use ` run directly_ classifier.py `(provided by Google).
-If the average value cannot be reached, it indicates that there is a bug in the experiment itself, please check carefully.
-There are many random factors in the highest value, and we can't guarantee that we can reach the highest value.
-Another recognized factor: reducing the batch size will significantly reduce the experimental effect. For details, please refer to the related issues of BERT and xlnet directory.
+**Q: You lied! Unable to reproduce the results 😂**  
+A: In the downstream task, we adopted the simplest model. For example, for classification tasks, we directly use run_classifier.py (provided by Google). If the average value cannot be reached, it means that there is a bug in the experiment itself, please check carefully. There are many random factors in the highest value, and we cannot guarantee that the highest value will be achieved. Another recognized factor: reducing the batch size will significantly reduce the experimental effect. For details, please refer to the relevant Issues in the BERT and XLNet directories.
 
-**Q: I've got better results than you!**
+**Q: I trained better results than you!**  
 A: Congratulations.
 
-**Q: How long did the training take and what equipment did it use?**
-A: The training is completed in Google TPU V3 Version (128G HBM). It takes about 4 hours to train bert WWM base and 8 hours to train bert WWM large.
+**Q: How long did the training take, and what equipment did you train on?**  
+A: The training is done on the Google TPU v3 version (128G HBM). It takes about 4 hours to train BERT-wwm-base, and about 8 hours to train BERT-wwm-large.
 
-**Q: Who is Ernie?**
-A: The Ernie model in this project refers to the [Ernie] model proposed by Baidu company（ https://github.com/PaddlePaddle/LARK/tree/develop/ERNIE ）Instead of [Ernie] published by Tsinghua University in ACL 2019（ https://github.com/thunlp/ERNIE )。
+**Q: The effect of BERT-wwm is not good for all tasks**  
+A: The purpose of this project is to provide researchers with a variety of pre-training models, free to choose BERT, ERNIE, or BERT-wwm. We only provide experimental data, and we still have to keep trying in our own tasks to draw conclusions about the specific effect. One more model, one more choice.
 
-**Q: The effect of BERT WWM is not very good in all tasks**
-A: The purpose of this project is to provide a variety of pre-trained models for researchers to freely choose bet, Ernie, or BERT WWM.
-We only provide experimental data, but we have to try our best to get a conclusion.
-One more model, one more choice.
+**Q: Why are some data sets not tested?**  
+A: Frankly speaking: 1) I don’t have the energy to find more data; 2) It’s unnecessary; 3) I don’t have money;
 
-**Q: Why don't you try it on some datasets?**
-A: Frankly
-1) No energy to find more data;
-2) It's not necessary;
-3) No money;
+**Q: Briefly evaluate these models.**  
+A: Each has its own focus and strengths. The research and development of Chinese natural language processing requires the joint efforts of many parties.
 
-**Q: Briefly evaluate these models**
-A: Each has its own emphasis and merits.
-The research and development of Chinese natural language processing needs the joint efforts of many parties.
+**Q: More details about the RoBERTa-wwm-ext model?**  
+A: We integrated the advantages of RoBERTa and BERT-wwm, and made a natural combination of the two. The differences from the previous models in this catalog are as follows: 
+>1) The wwm strategy is used for masking in the pre-training phase (but dynamic masking is not used) 
+>2) Next Sentence Prediction (NSP) loss is simply canceled 
+>3) Max_len=128 is no longer used Then use max_len=512 training mode, directly train max_len=512 
+>4) Properly extend the number of training steps  
 
-**Q: More details about the 'Roberta WWM ext' model?**
-A: We integrate the advantages of Roberta and Bert WWM to make a natural combination of them.
-The differences from the previous models in this catalog are as follows:
-1) In the pre-trained stage, the WWM strategy was used for mask (but dynamic masking was not used)
-2) Simply cancel next sense prediction (NSP) loss
-3) It is no longer necessary to use the first max_ Len = 128 and then max_ Len = 512 training mode, direct training max_ len=512
-4) The training steps should be extended appropriately
-It should be noted that this model is not the original Roberta model, but just a model trained by similar Roberta training method, that is, Roberta like Bert.
-Therefore, when using downstream tasks and transforming models, please handle them in the way of Bert instead of Roberta.
+It should be noted that this model is not the original RoBERTa model, but a BERT model trained in a RoBERTa-like training method, that is, RoBERTa-like BERT. Therefore, when using downstream tasks and converting models, please use BERT instead of RoBERTa.
 
 
 
@@ -376,11 +439,12 @@ This project is not [Bert official](https://github.com/google-research/bert) Pub
 The content of the project is only for technical research reference, not as any conclusive basis.
 Users can use the model freely within the scope of the license, but we are not responsible for the direct or indirect losses caused by using the content of the project.
 
-## Focus on us
+## Follow us
 Welcome to Zhihu column.
-[Deep learning interest group](https://www.zhihu.com/column/thuil)
+[Deep Learning Interest Group](https://www.zhihu.com/column/thuil)
 
 ## Problem feedback &amp; contribution
-If you have any questions, please submit them in GitHub issue.
-We don't have an operation to encourage people to help each other solve problems.
-If you find implementation problems or are willing to build the project together, please submit a pull request.
+If you have any problems, please submit them in GitHub Issue. 
+We do not operate, and encourage netizens to help each other solve problems. 
+If you find implementation problems or are willing to jointly build the project, please submit a Pull Request.
+
