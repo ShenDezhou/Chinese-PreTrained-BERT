@@ -14,12 +14,13 @@
 
 
 ## 新闻
-**2023/5/22 发布夜王BERT: bert_night-king_36L_cn,包括tf、pytorch模型。**  
-中文模型bert_night-king：其详细参数为36-layer, 1024-hidden, 16-heads, 476.7M parameters
+**2023/5/23 发布Stark-BERT: Eddard, Lyarra, Rickard, Lyanna,包括tf、pytorch模型。**  
+12-layer, 768-hidden, 12-heads, 102.3M/105.1M parameters  
 
 <details>
 <summary>历史新闻</summary>
 
+2023/5/22 发布夜王BERT: bert_night-king_36L_cn,包括tf、pytorch模型。中文模型bert_night-king：其详细参数为36-layer, 1024-hidden, 16-heads, 476.7M parameters  
 2023/5/16 发布中文预训练模型BERT-Tiny-CN，BERT-Mini-CN。  
 由新闻语料训练100k步。超参数与谷歌BERT基本一致。  
 BERT-Tiny: masked_lm_accuracy=22.74%，NSP_accuracy=100%。  
@@ -84,6 +85,10 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 | 中文维基百科，其他百科、新闻、问答 | Brian Shen | [roberta-3L_cn-alpha]                                     | cn   | 3  | 768    | 12   | 38.5M           |
 | 中学阅读理解            | Brian Shen | [roberta-3L_cn-beta]                                      | cn   | 3  | 1024   | 16   | 61.0M           |
 | 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_sansa_12L_cn]                                       | cn   | 12 | 768    | 12   | 102.3M          |
+| 中文评论              | Brian Shen | [bert_eddard_12L_cn_tf],[bert_eddard_12L_cn_pt]           | cn   | 12 | 768    | 12   | 102.3M          |
+| 中文评论              | Brian Shen | [bert_lyarra_12L_cn_tf],[bert_lyarra_12L_cn_pt]           | cn   | 12 | 768    | 12   | 105.1M          |
+| 中文评论              | Brian Shen | [bert_rickard_12L_cn_tf],[bert_rickard_12L_cn_pt]         | cn   | 12 | 768    | 12   | 105.1M          |
+| 中文评论              | Brian Shen | [bert_lyanna_12L_cn_tf],[bert_lyanna_12L_cn_pt]           | cn   | 12 | 768    | 12   | 105.1M          |
 | 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_24L_cn]                                             | cn   | 24 | 1024   | 16   | 325.5M          |
 | QA                | Brian Shen | [bert_arya_24L_cn]                                        | cn   | 24 | 1024   | 16   | 325.5M          |
 | QA                | Brian Shen | [bert_daenerys_24L_cn]                                    | cn   | 24 | 1024   | 16   | 325.5M          |
@@ -119,6 +124,14 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 [roberta-3L_cn-alpha]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-3_H-768_A-12_cn.zip
 [roberta-3L_cn-beta]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-3_H-1024_A-16_cn.zip
 [bert_sansa_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_sansa_L-12_H-768_A-12_cn.zip
+[bert_eddard_12L_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta_eddard_L-12_H-768_A-12_cn.zip
+[bert_eddard_12L_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_eddard_L-12_H-768_A-12_cn.zip
+[bert_lyarra_12L_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta_lyarra_L-12_H-768_A-12_cn_tf.zip
+[bert_lyarra_12L_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_lyarra_L-12_H-768_A-12_cn.zip
+[bert_rickard_12L_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta_rickard_L-12_H-768_A-12_cn_tf.zip
+[bert_rickard_12L_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_rickard_L-12_H-768_A-12_cn.zip
+[bert_lyanna_12L_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta_lyanna_L-12_H-768_A-12_cn_tf.zip
+[bert_lyanna_12L_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_lyanna_L-12_H-768_A-12_cn.zip
 [bert_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-24_H-1024_A-16_cn.zip
 [bert_arya_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_arya_L-24_H-1024_A-16_cn.zip
 [bert_daenerys_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_daenerys_L-24_H-1024_A-16_cn.zip
