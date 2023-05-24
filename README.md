@@ -63,10 +63,10 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 下述文本展示了`全词Mask`的生成样例。
 **注意：为了方便理解，下述例子中只考虑替换成[MASK]标签的情况。**
 
-| 说明 | 样例 |
-| :------- | :--------- |
-| 原始文本 | 使用语言模型来预测下一个词的probability。 |
-| 分词文本 | 使用 语言 模型 来 预测 下 一个 词 的 probability 。 |
+| 说明       | 样例 |
+|:---------| :--------- |
+| 原始文本     | 使用语言模型来预测下一个词的probability。 |
+| 分词文本     | 使用 语言 模型 来 预测 下 一个 词 的 probability 。 |
 | 原始Mask输入 | 使 用 语 言 [MASK] 型 来 [MASK] 测 下 一 个 词 的 pro [MASK] ##lity 。 |
 | 全词Mask输入 | 使 用 语 言 [MASK] [MASK] 来 [MASK] [MASK] 下 一 个 词 的 [MASK] [MASK] [MASK] 。 |
 

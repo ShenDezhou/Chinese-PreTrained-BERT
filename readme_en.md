@@ -40,34 +40,34 @@ Trained for 100k steps from the news corpus. The hyperparameters are basically t
 </details>
 
 ## Content guidance
-|Chapter | description|
-|-|-|
-|[introduction](#introduction) | Introduce the basic principles of BERT-wwm|
-|[Model Download](#model download) | The Chinese pre-training BERT download address is provided|
-|[baseline system effect](#baseline system effect) | Some baseline system effects are listed|
-|[pre-trained details](#pre-trained details) | Description of pre-training details|
-|[fine tuning details of downstream tasks](#fine tuning details of downstream tasks) | A description of downstream task fine-tuning details|
-|[FAQ](#faq) | FAQ|
-|[reference](#reference) | Technical reports for this catalog|
+| Chapter                                                                     | Description                                        |
+|-----------------------------------------------------------------------------|----------------------------------------------------|
+| [introduction](#Introduction)                                               | Introduce the basic principles of BERT-wwm         |
+| [Model Download](#Model_Download)                                           | The Chinese pre-training BERT download links       |
+| [Baseline System Effects](#Baseline_System_Effects)                         | Some baseline system effects are listed            |
+| [Pretraining](#Pretraining)                                                 | Description of pre-training details                |
+| [Downstream_task_fine-tuning_details](#Downstream_task_fine-tuning_details) | Description of downstream task fine-tuning details |
+| [FAQ](#FAQ)                                                                 | FAQ                                                |
+| [Citation](#Citation)                                                       | Technical reports                                  |
 
 
 ## Introduction
 
-Whole Word Masking (wwm) , temporarily translated as whole word Mask or whole word Mask , is an upgraded version of BERT released by Google on May 31, 2019, which mainly changes the training sample generation strategy in the original pre-training stage. To put it simply, the original WordPiece-based word segmentation method will divide a complete word into several subwords. When generating training samples, these divided subwords will be randomly masked. In the whole word Mask , if part of a WordPiece subword of a complete word is masked, other parts belonging to the same word will also be masked, that is, the whole word Mask .
+Whole Word Masking (wwm), temporarily translated as whole word Mask or whole word Mask , is an upgraded version of BERT released by Google on May 31, 2019, which mainly changes the training sample generation strategy in the original pre-training stage. To put it simply, the original WordPiece-based word segmentation method will divide a complete word into several subwords. When generating training samples, these divided subwords will be randomly masked. In the whole word Mask , if part of a WordPiece subword of a complete word is masked, other parts belonging to the same word will also be masked, that is, the whole word Mask .
 It should be noted that the mask here refers to a generalized mask (replaced with [MASK]; keep the original vocabulary; randomly replaced with another word), not limited to the case where words are replaced with [MASK] tags . For more detailed instructions and examples, please refer to: #4
 the BERT-base, Chinese officially released by Google , Chinese is segmented at the granularity of characters , and Chinese word segmentation (CWS) in traditional NLP is not considered. We applied the method of full-word Mask to Chinese, used Chinese Wikipedia (including Simplified and Traditional) for training, and used a word segmentation tool, that is, Mask all the Chinese characters that make up the same word .
 
 
 The following text shows an example of the generation of the full word Mask . Note: For ease of understanding, only the [MASK] tag is considered in the following example.
 
-|Description | example|
-| :------- | :--------- |
-|The original text | Use a language model to predict the probability of the next word. |
-|Word segmentation text | Use a language model to predict the probability of the next word. |
-|The original mask input | Use the language [MASK] type to [MASK] measure the pro [MASK] ##lity of the next word. |
-|Full word mask input | Use language [MASK] [MASK] to [MASK] [MASK] [MASK] [MASK] [MASK] of the next word. |
+| Description             | example|
+|:------------------------| :--------- |
+| The original text       | Use a language model to predict the probability of the next word. |
+| Word segmentation text  | Use a language model to predict the probability of the next word. |
+| The original mask input | Use the language [MASK] type to [MASK] measure the pro [MASK] ##lity of the next word. |
+| Full word mask input    | Use language [MASK] [MASK] to [MASK] [MASK] [MASK] [MASK] [MASK] of the next word. |
 
-## Model Download
+## Model_Download
 
 
 | dataset               | owner      | model                                                     | language | layers | hidden | head | Parameter amount             |
@@ -142,7 +142,7 @@ The following text shows an example of the generation of the full word Mask . No
 Some provide Tensorflow and Pytorch versions, and some only provide PyTorch versions.
 
 
-### Instructions for use
+### Instructions for Use
 
 The bert_12L_cn model file size is about 454M and 1.3G .
 The TensorFlow version is:
@@ -177,7 +177,7 @@ model = BertModel.from_pretrained("MODEL_NAME")
 ```
 
 
-## Baseline System Effects
+## Baseline_System_Effects
 In order to compare the baseline performance, we tested on the following English datasets. Compared with English BERT-Tiny, Chinese BERT-Tiny, Chinese BERT-Mini, Chinese BERT-wwm-ext, BERT-base and bert_12L_cn of this project.
 
 
@@ -200,7 +200,7 @@ In conclusion, the Chinese BERT-Tiny/Mini trained using the news corpus [corpus-
 Compared with Google BERT-Tiny/Mini: Chinese BERT-Tiny(-9.13%/-9.93%), Chinese BERT-Mini(-6.43%/-7.23%); since these two models are trained on Chinese corpus It has achieved this effect in the English GLUE evaluation, which proves the ability of the model in English tasks. Analyze why the Chinese model can be fine-tuned on English tasks, because the Chinese model uses a vocabulary of 21K words from Google's official Chinese model, which contains a large number of common English words, so it has the potential to represent English text. However, since this model is not designed for English, its representation ability is 9.13%/9.93% and 6.43%/7.23% worse than the Google BERT-Tiny model, respectively.
 
 
-## pre-trained word segmentation
+## Pre-trained_Word_Segmentation
 TBERT-Tiny-CN and BERT-Mini-CN use Chinese word segmentation without lowercase conversion.
 According to the details of the word MASK and other models, the bert_12L_cn model is taken as an example to illustrate the pre-training details.
 
@@ -277,7 +277,7 @@ def tokenize(self, text):
   return output_tokens
 ```
 
-### pretraining
+### Pretraining
 The training parameters of the BERT-Tiny-CN and BERT-Mini-CN models are: * train_batch_size: 32 * max_seq_length: 128 * max_predictions_per_seq: 20 * num_train_steps: 100000 * num_warmup_steps: 5000 * learning_rate: 2e - 5
 The training results are as follows:   
 * BERT-Tiny: masked_lm_accuracy=22.74%, NSP_accuracy=100%. 
@@ -374,7 +374,7 @@ The command used is as follows:
 ```
 
 
-## Downstream task fine-tuning details
+## Downstream_task_fine-tuning_details
 
 The device used for downstream task fine-tuning is Google Cloud GPU (16G HBM).  
 The configuration of each task fine-tuning is briefly described below. See the project for the relevant code.
