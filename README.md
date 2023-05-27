@@ -210,6 +210,8 @@ model = BertModel.from_pretrained("MODEL_NAME")
 * learning rate: 3e-5
 * doc stride: 128
 
+结论，由于BERT-Tiny/Mini-CN是中文语料训练的，在英文阅读理解/问答任务中比Google的BERT-Tiny/Mini效果差15%-33%。
+
 ## 预训练分词
 `BERT-Tiny-CN`和`BERT-Mini-CN`这两个模型采用中文按字分词，不进行小写转换。
 

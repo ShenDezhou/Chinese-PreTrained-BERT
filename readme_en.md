@@ -213,6 +213,8 @@ We use the same training parameters for two rounds of training for each task, an
 * learning rate: 3e-5
 * doc stride: 128
 
+In conclusion, since BERT-Tiny/Mini-CN is trained on Chinese corpus, it is 15%-33% worse than Google's BERT-Tiny/Mini in English reading comprehension/question answering tasks.
+
 
 ## Pre-trained_Word_Segmentation
 TBERT-Tiny-CN and BERT-Mini-CN use Chinese word segmentation without lowercase conversion.
