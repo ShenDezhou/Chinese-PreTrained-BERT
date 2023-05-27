@@ -200,6 +200,20 @@ In conclusion, the Chinese BERT-Tiny/Mini trained using the news corpus [corpus-
 Compared with Google BERT-Tiny/Mini: Chinese BERT-Tiny(-9.13%/-9.93%), Chinese BERT-Mini(-6.43%/-7.23%); since these two models are trained on Chinese corpus It has achieved this effect in the English GLUE evaluation, which proves the ability of the model in English tasks. Analyze why the Chinese model can be fine-tuned on English tasks, because the Chinese model uses a vocabulary of 21K words from Google's official Chinese model, which contains a large number of common English words, so it has the potential to represent English text. However, since this model is not designed for English, its representation ability is 9.13%/9.93% and 6.43%/7.23% worse than the Google BERT-Tiny model, respectively.
 
 
+| Model        | Score | SQUAD 1.1 | SQUAD-2 |
+|--------------|:-----:|:---------:|:-------:|
+| BERT-Tiny    | 45.27 |   39.88   |  50.66  |
+| BERT-Mini    | 64.03 |   68.58   |  59.47  |
+| BERT-Tiny-CN | 29.78 |   9.48    |  50.07  |
+| BERT-Mini-CN | 31.76 |  13.45    |  50.06  |
+
+We use the same training parameters for two rounds of training for each task, and the other parameters are as follows：  
+* max seq length: 384
+* batch size: 12
+* learning rate: 3e-5
+* doc stride: 128
+
+
 ## Pre-trained_Word_Segmentation
 TBERT-Tiny-CN and BERT-Mini-CN use Chinese word segmentation without lowercase conversion.
 According to the details of the word MASK and other models, the bert_12L_cn model is taken as an example to illustrate the pre-training details.
