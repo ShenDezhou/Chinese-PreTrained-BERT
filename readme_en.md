@@ -11,7 +11,7 @@ Other related resources: - Chinese BERT pre-training model: https://github.com/y
 
 ## NEWS
 
-**2023/5/27 Release Sentence-BERT: Small, Base, Large, Multi-Lingual-Base.**   
+**2023/5/27 Release Sentence-BERT: Drogo, Base, Large, Multi-Lingual-Base.**   
 Sentence-BERT works well only for text vectorization representation, please refer to the sentence_transformers project.
 
 
@@ -74,32 +74,32 @@ The following text shows an example of the generation of the full word Mask . No
 
 
 | dataset                                                             | owner      | model                                                     | language | layers | hidden | head | Parameter amount             |
-|---------------------------------------------------------------------|------------|-----------------------------------------------------------|------|----|--------|------|-----------------|
-| news[corpus-3]                                                      | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]                       | cn   | 2  | 128    | 2    | 3.2M            |
-| news[corpus-3]                                                      | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt]                      | cn   | 4  | 256    | 4    | 8.8M            |
-| Middle School Reading Comprehension                                 | Brian Shen | [bert_2L_cn]                                              | cn   | 2  | 768    | 4    | 16.8M           |
-| Middle School Reading Comprehension                                 | Brian Shen | [bert_6L_cn]                                              | cn   | 6  | 768    | 12   | 45.1M           |
-| Chinese Wikipedia                                                   | Google     | [chinese_L-12_H-768_A-12_tf],[chinese_L-12_H-768_A-12_pt] | cn   | 12 | 768    | 12   | 102.3M[model-1] |
-| Chinese Wikipedia                                                   | Brian Shen | [bert_tywin_12L_cn]                                       | cn   | 12 | 768    | 12   | 102.3M          |
-| Chinese Wikipedia                                                   | Brian Shen | [bert_tyrion_12L_cn]                                      | cn   | 12 | 768    | 12   | 102.3M          |
-| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [roberta-3L_cn-alpha]                                     | cn   | 3  | 768    | 12   | 38.5M           |
-| Middle School Reading Comprehension                                 | Brian Shen | [roberta-3L_cn-beta]                                      | cn   | 3  | 1024   | 16   | 61.0M           |
-| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [bert_sansa_12L_cn]                                       | cn   | 12 | 768    | 12   | 102.3M          |
-| Chinese comments                                                    | Brian Shen | [bert_eddard_12L_cn_tf],[bert_eddard_12L_cn_pt]           | cn   | 12 | 768    | 12   | 102.3M          |
-| Chinese comments                                                    | Brian Shen | [bert_lyarra_12L_cn_tf],[bert_lyarra_12L_cn_pt]           | cn   | 12 | 768    | 12   | 105.1M          |
-| Chinese comments                                                    | Brian Shen | [bert_rickard_12L_cn_tf],[bert_rickard_12L_cn_pt]         | cn   | 12 | 768    | 12   | 105.1M          |
-| Chinese comments                                                    | Brian Shen | [bert_lyanna_12L_cn_tf],[bert_lyanna_12L_cn_pt]           | cn   | 12 | 768    | 12   | 105.1M          |
-| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [bert_24L_cn]                                             | cn   | 24 | 1024   | 16   | 325.5M          |
-| QA                                                                  | Brian Shen | [bert_arya_24L_cn]                                        | cn   | 24 | 1024   | 16   | 325.5M          |
-| QA                                                                  | Brian Shen | [bert_daenerys_24L_cn]                                    | cn   | 24 | 1024   | 16   | 325.5M          |
-| news[corpus-4]                                                      | Brian Shen | [bert_night-king_36L_cn_tf],[bert_night-king_36L_cn_pt]   | cn   | 36 | 1024   | 16   | 476.7M          |
-| QA                                                                  | Brian Shen | [xlnet_6L_cn]                                             | cn   | 6  |        |      | 53.5M           |
-| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [xlnet_12L_cn]                                            | cn   | 12 |        |      | 117M            |
-| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [xlnet_24L_cn]                                            | cn   | 24 |        |      | 209M            |
-| English Text                                                        | Brian Shen | [stsb_L-6_H-768_A-12]                                     | en     | 6  | 768    | 12   | M          |
-| English Text                                                        | Brian Shen | [stsb_L-12_H-768_A-12]                                    | en     | 12 | 768    | 12   | M          |
-| English Text                                                        | Brian Shen | [stsb_L-24_H-1024_A-16]                                   | en     | 24 | 1024   | 16   | M          |
-| Multi-Lingual Text                                                  | Brian Shen | [stsb-multi_L-12_H-768_A-12]                              | global | 12 | 768    | 12   | M          |
+|---------------------------------------------------------------------|------------|-----------------------------------------------------------|------|-------|--------|------|-----------------|
+| news[corpus-3]                                                      | Brian Shen | [bert_tiny_cn_tf],[bert_tiny_cn_pt]                       | cn   | 2     | 128    | 2    | 3.2M            |
+| news[corpus-3]                                                      | Brian Shen | [bert_mini_cn_tf], [bert_mini_cn_pt]                      | cn   | 4     | 256    | 4    | 8.8M            |
+| Middle School Reading Comprehension                                 | Brian Shen | [bert_2L_cn]                                              | cn   | 2     | 768    | 4    | 16.8M           |
+| Middle School Reading Comprehension                                 | Brian Shen | [bert_6L_cn]                                              | cn   | 6     | 768    | 12   | 45.1M           |
+| Chinese Wikipedia                                                   | Google     | [chinese_L-12_H-768_A-12_tf],[chinese_L-12_H-768_A-12_pt] | cn   | 12    | 768    | 12   | 102.3M[model-1] |
+| Chinese Wikipedia                                                   | Brian Shen | [bert_tywin_12L_cn]                                       | cn   | 12    | 768    | 12   | 102.3M          |
+| Chinese Wikipedia                                                   | Brian Shen | [bert_tyrion_12L_cn]                                      | cn   | 12    | 768    | 12   | 102.3M          |
+| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [roberta-3L_cn-alpha]                                     | cn   | 3     | 768    | 12   | 38.5M           |
+| Middle School Reading Comprehension                                 | Brian Shen | [roberta-3L_cn-beta]                                      | cn   | 3     | 1024   | 16   | 61.0M           |
+| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [bert_sansa_12L_cn]                                       | cn   | 12    | 768    | 12   | 102.3M          |
+| Chinese comments                                                    | Brian Shen | [bert_eddard_12L_cn_tf],[bert_eddard_12L_cn_pt]           | cn   | 12    | 768    | 12   | 102.3M          |
+| Chinese comments                                                    | Brian Shen | [bert_lyarra_12L_cn_tf],[bert_lyarra_12L_cn_pt]           | cn   | 12    | 768    | 12   | 105.1M          |
+| Chinese comments                                                    | Brian Shen | [bert_rickard_12L_cn_tf],[bert_rickard_12L_cn_pt]         | cn   | 12    | 768    | 12   | 105.1M          |
+| Chinese comments                                                    | Brian Shen | [bert_lyanna_12L_cn_tf],[bert_lyanna_12L_cn_pt]           | cn   | 12    | 768    | 12   | 105.1M          |
+| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [bert_24L_cn]                                             | cn   | 24    | 1024   | 16   | 325.5M          |
+| QA                                                                  | Brian Shen | [bert_arya_24L_cn]                                        | cn   | 24    | 1024   | 16   | 325.5M          |
+| QA                                                                  | Brian Shen | [bert_daenerys_24L_cn]                                    | cn   | 24    | 1024   | 16   | 325.5M          |
+| news[corpus-4]                                                      | Brian Shen | [bert_night-king_36L_cn_tf],[bert_night-king_36L_cn_pt]   | cn   | 36    | 1024   | 16   | 476.7M          |
+| QA                                                                  | Brian Shen | [xlnet_6L_cn]                                             | cn   | 6     |        |      | 53.5M           |
+| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [xlnet_12L_cn]                                            | cn   | 12    |        |      | 117M            |
+| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [xlnet_24L_cn]                                            | cn   | 24    |        |      | 209M            |
+| English Text                                                        | Brian Shen | [stsb_drogo_L-12_H-768_A-12]                              | en     | 12    | 768    | 12   | 109.5M          |
+| English Text                                                        | Brian Shen | [stsb_L-12_H-768_A-12]                                    | en     | 12    | 768    | 12   | 124.6M          |
+| English Text                                                        | Brian Shen | [stsb_L-24_H-1024_A-16]                                   | en     | 24    | 1024   | 16   | 355.3M          |
+| Multi-Lingual Text                                                  | Brian Shen | [stsb-multi_L-12_H-768_A-12]                              | global | 12    | 768    | 12   | 278M          |
 
 
 > base : 12-layer, 768-hidden, 12-heads, 102.3M parameters 
@@ -142,7 +142,7 @@ The following text shows an example of the generation of the full word Mask . No
 [xlnet_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_6L_cn.tgz
 [xlnet_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_12L_cn.tgz
 [xlnet_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_24L_cn.tgz
-[stsb_L-6_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-6_H-768_A-12.zip
+[stsb_drogo_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_drogo_L-12_H-768_A-12.zip
 [stsb_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-12_H-768_A-12.zip
 [stsb_L-24_H-1024_A-16]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-24_H-1024_A-16.zip
 [stsb-multi_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb-multi_L-12_H-768_A-12.zip

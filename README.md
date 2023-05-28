@@ -14,7 +14,7 @@
 
 
 ## 新闻
-**2023/5/27 发布Sentence-BERT:Small, Base, Large, Multi-Lingual-Base**
+**2023/5/27 发布Sentence-BERT:Drogo, Base, Large, Multi-Lingual-Base**
 Sentence-Bert仅用于文本向量化表示时效果较好，参考sentence_transformers项目。
 
 
@@ -100,10 +100,10 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 | QA                | Brian Shen | [xlnet_6L_cn]                                             | cn     | 6  |        |      | 53.5M           |
 | 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_12L_cn]                                            | cn     | 12 |        |      | 117M            |
 | 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn]                                            | cn     | 24 |        |      | 209M            |
-| 英文文本              | Brian Shen | [stsb_L-6_H-768_A-12]                                     | en     | 6  | 768    | 12   | M          |
-| 英文文本              | Brian Shen | [stsb_L-12_H-768_A-12]                                    | en     | 12 | 768    | 12   | M          |
-| 英文文本              | Brian Shen | [stsb_L-24_H-1024_A-16]                                   | en     | 24 | 1024   | 16   | M          |
-| 多语言语料             | Brian Shen | [stsb-multi_L-12_H-768_A-12]                              | global | 12 | 768    | 12   | M          |
+| 英文文本              | Brian Shen | [stsb_drogo_L-12_H-768_A-12]                                     | en     | 12 | 768    | 12   | 109.5M          |
+| 英文文本              | Brian Shen | [stsb_L-12_H-768_A-12]                                    | en     | 12 | 768    | 12   | 124.6M          |
+| 英文文本              | Brian Shen | [stsb_L-24_H-1024_A-16]                                   | en     | 24 | 1024   | 16   | 355.3M          |
+| 多语言语料             | Brian Shen | [stsb-multi_L-12_H-768_A-12]                              | global | 12 | 768    | 12   | 278M               |
 
 
 > **`base`**：12-layer, 768-hidden, 12-heads, 102.3M parameters  
@@ -148,7 +148,7 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 [xlnet_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_6L_cn.tgz
 [xlnet_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_12L_cn.tgz
 [xlnet_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_24L_cn.tgz
-[stsb_L-6_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-6_H-768_A-12.zip
+[stsb_drogo_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_drogo_L-12_H-768_A-12.zip
 [stsb_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-12_H-768_A-12.zip
 [stsb_L-24_H-1024_A-16]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-24_H-1024_A-16.zip
 [stsb-multi_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb-multi_L-12_H-768_A-12.zip
