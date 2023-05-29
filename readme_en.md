@@ -93,9 +93,6 @@ The following text shows an example of the generation of the full word Mask . No
 | QA                                                                  | Brian Shen | [bert_arya_24L_cn]                                        | cn   | 24    | 1024   | 16   | 325.5M          |
 | QA                                                                  | Brian Shen | [bert_daenerys_24L_cn]                                    | cn   | 24    | 1024   | 16   | 325.5M          |
 | news[corpus-4]                                                      | Brian Shen | [bert_night-king_36L_cn_tf],[bert_night-king_36L_cn_pt]   | cn   | 36    | 1024   | 16   | 476.7M          |
-| QA                                                                  | Brian Shen | [xlnet_6L_cn]                                             | cn   | 6     |        |      | 53.5M           |
-| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [xlnet_12L_cn]                                            | cn   | 12    |        |      | 117M            |
-| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [xlnet_24L_cn]                                            | cn   | 24    |        |      | 209M            |
 | English Text                                                        | Brian Shen | [stsb_drogo_L-12_H-768_A-12]                              | en     | 12    | 768    | 12   | 109.5M          |
 | English Text                                                        | Brian Shen | [stsb_L-12_H-768_A-12]                                    | en     | 12    | 768    | 12   | 124.6M          |
 | English Text                                                        | Brian Shen | [stsb_L-24_H-1024_A-16]                                   | en     | 24    | 1024   | 16   | 355.3M          |
@@ -139,9 +136,6 @@ The following text shows an example of the generation of the full word Mask . No
 [bert_daenerys_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_daenerys_L-24_H-1024_A-16_cn.zip
 [bert_night-king_36L_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta_night-king_L-36_H-1024_A-16_cn_tf.zip
 [bert_night-king_36L_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_night-king_L-36_H-1024_A-16_cn.zip
-[xlnet_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_6L_cn.tgz
-[xlnet_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_12L_cn.tgz
-[xlnet_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_24L_cn.tgz
 [stsb_drogo_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_drogo_L-12_H-768_A-12.zip
 [stsb_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-12_H-768_A-12.zip
 [stsb_L-24_H-1024_A-16]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-24_H-1024_A-16.zip

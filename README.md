@@ -97,9 +97,6 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 | QA                | Brian Shen | [bert_arya_24L_cn]                                        | cn     | 24 | 1024   | 16   | 325.5M          |
 | QA                | Brian Shen | [bert_daenerys_24L_cn]                                    | cn     | 24 | 1024   | 16   | 325.5M          |
 | 新闻[corpus-4]      | Brian Shen | [bert_night-king_36L_cn_tf],[bert_night-king_36L_cn_pt]   | cn     | 36 | 1024   | 16   | 476.7M          |
-| QA                | Brian Shen | [xlnet_6L_cn]                                             | cn     | 6  |        |      | 53.5M           |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_12L_cn]                                            | cn     | 12 |        |      | 117M            |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [xlnet_24L_cn]                                            | cn     | 24 |        |      | 209M            |
 | 英文文本              | Brian Shen | [stsb_drogo_L-12_H-768_A-12]                                     | en     | 12 | 768    | 12   | 109.5M          |
 | 英文文本              | Brian Shen | [stsb_L-12_H-768_A-12]                                    | en     | 12 | 768    | 12   | 124.6M          |
 | 英文文本              | Brian Shen | [stsb_L-24_H-1024_A-16]                                   | en     | 24 | 1024   | 16   | 355.3M          |
@@ -145,9 +142,6 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 [bert_daenerys_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_daenerys_L-24_H-1024_A-16_cn.zip
 [bert_night-king_36L_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta_night-king_L-36_H-1024_A-16_cn_tf.zip
 [bert_night-king_36L_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_night-king_L-36_H-1024_A-16_cn.zip
-[xlnet_6L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_6L_cn.tgz
-[xlnet_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_12L_cn.tgz
-[xlnet_24L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/xlnet_24L_cn.tgz
 [stsb_drogo_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_drogo_L-12_H-768_A-12.zip
 [stsb_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-12_H-768_A-12.zip
 [stsb_L-24_H-1024_A-16]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-24_H-1024_A-16.zip
@@ -478,7 +472,7 @@ A: 我们集成了RoBERTa和BERT-wwm的优点，对两者进行了一个自然�
 
 
 ## 致谢
-项目作者： Brian Shen. Twitter@dezhou.
+项目作者： Brian Shen. Twitter @dezhou.
 
 建设该项目过程中参考了如下仓库，在这里表示感谢：
 - BERT：https://github.com/google-research/bert
