@@ -10,13 +10,16 @@ Other related resources: - Chinese BERT pre-training model: https://github.com/y
 
 
 ## NEWS
-
-**2023/5/27 Release Sentence-BERT: Drogo, Base, Large, Multi-Lingual-Base.**   
-Sentence-BERT works well only for text vectorization representation, please refer to the sentence_transformers project.
+**2023/5/30 Release RoBERTa-Base/Large**
+RoBERTa uses the GPT-2 tokenizer instead of the BERT tokenizer.
 
 
 <details>
 <summary>Historical news</summary>
+
+2023/5/27 Release Sentence-BERT: Drogo, Base, Large, Multi-Lingual-Base. 
+Sentence-BERT works well only for text vectorization representation, please refer to the sentence_transformers project.
+
 
 2023/5/23 Release Stark-BERT: Eddard, Lyarra, Rickard, Lyanna, including tf, pytorch models. 
 12-layer, 768-hidden, 12-heads, 102.3M/105.1M parameters training 200,000 steps.  
@@ -97,6 +100,8 @@ The following text shows an example of the generation of the full word Mask . No
 | English Text                                                        | Brian Shen | [stsb_L-12_H-768_A-12]                                    | en     | 12    | 768    | 12   | 124.6M          |
 | English Text                                                        | Brian Shen | [stsb_L-24_H-1024_A-16]                                   | en     | 24    | 1024   | 16   | 355.3M          |
 | Multi-Lingual Text                                                  | Brian Shen | [stsb-multi_L-12_H-768_A-12]                              | global | 12    | 768    | 12   | 278M          |
+| 英文文本              | Facebook   | [roberta_L-12_H-768_A-12_tf],[roberta_L-12_H-768_A-12_pt] | en     | 12 | 768    | 12   | 105.2M          |
+| 英文文本              | Facebook   | [roberta_L-24_H-1024_A-16_tf],[roberta_L-24_H-1024_A-16_tf] | en     | 24 | 1024   | 16   | 355.3M          |
 
 
 > base : 12-layer, 768-hidden, 12-heads, 102.3M parameters 
@@ -140,6 +145,10 @@ The following text shows an example of the generation of the full word Mask . No
 [stsb_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-12_H-768_A-12.zip
 [stsb_L-24_H-1024_A-16]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-24_H-1024_A-16.zip
 [stsb-multi_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb-multi_L-12_H-768_A-12.zip
+[roberta_L-12_H-768_A-12_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta-L-12_H-768_A-12_tf.zip
+[roberta_L-12_H-768_A-12_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta-L-12_H-768_A-12.zip
+[roberta_L-24_H-1024_A-16_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta-L-24_H-1024_A-16_tf.zip
+[roberta_L-24_H-1024_A-16_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta-L-24_H-1024_A-16.zip
 
 ### PyTorch/Tensorflow Versions
 

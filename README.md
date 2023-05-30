@@ -14,12 +14,14 @@
 
 
 ## 新闻
-**2023/5/27 发布Sentence-BERT:Drogo, Base, Large, Multi-Lingual-Base**
-Sentence-Bert仅用于文本向量化表示时效果较好，参考sentence_transformers项目。
+**2023/5/30 发布RoBERTa-Base/Large**
+RoBERTa使用了GPT-2的分词器，而不是BERT分词器。
 
 
 <details>
 <summary>历史新闻</summary>
+2023/5/27 发布Sentence-BERT:Drogo, Base, Large, Multi-Lingual-Base
+Sentence-Bert仅用于文本向量化表示时效果较好，参考sentence_transformers项目。
 
 2023/5/23 发布Stark-BERT: Eddard, Lyarra, Rickard, Lyanna,包括tf、pytorch模型。
 12-layer, 768-hidden, 12-heads, 102.3M/105.1M parameters 
@@ -86,8 +88,8 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 | 中文维基              | Google     | [chinese_L-12_H-768_A-12_tf],[chinese_L-12_H-768_A-12_pt] | cn     | 12 | 768    | 12   | 102.3M[model-1] |
 | 中文维基              | Brian Shen | [bert_tywin_12L_cn]                                       | cn     | 12 | 768    | 12   | 102.3M          |
 | 中文维基              | Brian Shen | [bert_tyrion_12L_cn]                                      | cn     | 12 | 768    | 12   | 102.3M          |
-| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert-3L_cn-alpha]                                     | cn     | 3  | 768    | 12   | 38.5M           |
-| 中学阅读理解            | Brian Shen | [bert-3L_cn-beta]                                      | cn     | 3  | 1024   | 16   | 61.0M           |
+| 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert-3L_cn-alpha]                                        | cn     | 3  | 768    | 12   | 38.5M           |
+| 中学阅读理解            | Brian Shen | [bert-3L_cn-beta]                                         | cn     | 3  | 1024   | 16   | 61.0M           |
 | 中文维基百科，其他百科、新闻、问答 | Brian Shen | [bert_sansa_12L_cn]                                       | cn     | 12 | 768    | 12   | 102.3M          |
 | 中文评论              | Brian Shen | [bert_eddard_12L_cn_tf],[bert_eddard_12L_cn_pt]           | cn     | 12 | 768    | 12   | 102.3M          |
 | 中文评论              | Brian Shen | [bert_lyarra_12L_cn_tf],[bert_lyarra_12L_cn_pt]           | cn     | 12 | 768    | 12   | 105.1M          |
@@ -97,10 +99,12 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 | QA                | Brian Shen | [bert_arya_24L_cn]                                        | cn     | 24 | 1024   | 16   | 325.5M          |
 | QA                | Brian Shen | [bert_daenerys_24L_cn]                                    | cn     | 24 | 1024   | 16   | 325.5M          |
 | 新闻[corpus-4]      | Brian Shen | [bert_night-king_36L_cn_tf],[bert_night-king_36L_cn_pt]   | cn     | 36 | 1024   | 16   | 476.7M          |
-| 英文文本              | Brian Shen | [stsb_drogo_L-12_H-768_A-12]                                     | en     | 12 | 768    | 12   | 109.5M          |
+| 英文文本              | Brian Shen | [stsb_drogo_L-12_H-768_A-12]                              | en     | 12 | 768    | 12   | 109.5M          |
 | 英文文本              | Brian Shen | [stsb_L-12_H-768_A-12]                                    | en     | 12 | 768    | 12   | 124.6M          |
 | 英文文本              | Brian Shen | [stsb_L-24_H-1024_A-16]                                   | en     | 24 | 1024   | 16   | 355.3M          |
-| 多语言语料             | Brian Shen | [stsb-multi_L-12_H-768_A-12]                              | global | 12 | 768    | 12   | 278M               |
+| 多语言语料             | Brian Shen | [stsb-multi_L-12_H-768_A-12]                              | global | 12 | 768    | 12   | 278M            |
+| 英文文本              | Facebook   | [roberta_L-12_H-768_A-12_tf],[roberta_L-12_H-768_A-12_pt] | en     | 12 | 768    | 12   | 105.2M          |
+| 英文文本              | Facebook   | [roberta_L-24_H-1024_A-16_tf],[roberta_L-24_H-1024_A-16_tf] | en     | 24 | 1024   | 16   | 355.4M          |
 
 
 > **`base`**：12-layer, 768-hidden, 12-heads, 102.3M parameters  
@@ -146,7 +150,10 @@ BERT-Mini: masked_lm_accuracy=33.54%，NSP_accuracy=100%。
 [stsb_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-12_H-768_A-12.zip
 [stsb_L-24_H-1024_A-16]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb_L-24_H-1024_A-16.zip
 [stsb-multi_L-12_H-768_A-12]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/stsb-multi_L-12_H-768_A-12.zip
-
+[roberta_L-12_H-768_A-12_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta-L-12_H-768_A-12_tf.zip
+[roberta_L-12_H-768_A-12_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta-L-12_H-768_A-12.zip
+[roberta_L-24_H-1024_A-16_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta-L-24_H-1024_A-16_tf.zip
+[roberta_L-24_H-1024_A-16_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta-L-24_H-1024_A-16.zip
 
 ### PyTorch/Tensorflow版本
 
