@@ -82,8 +82,8 @@ The following text shows an example of the generation of the full word Mask . No
 | Chinese Wikipedia                                                   | Google     | [chinese_L-12_H-768_A-12_tf],[chinese_L-12_H-768_A-12_pt] | cn   | 12    | 768    | 12   | 102.3M[model-1] |
 | Chinese Wikipedia                                                   | Brian Shen | [bert_tywin_12L_cn]                                       | cn   | 12    | 768    | 12   | 102.3M          |
 | Chinese Wikipedia                                                   | Brian Shen | [bert_tyrion_12L_cn]                                      | cn   | 12    | 768    | 12   | 102.3M          |
-| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [roberta-3L_cn-alpha]                                     | cn   | 3     | 768    | 12   | 38.5M           |
-| Middle School Reading Comprehension                                 | Brian Shen | [roberta-3L_cn-beta]                                      | cn   | 3     | 1024   | 16   | 61.0M           |
+| Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [bert-3L_cn-alpha]                                     | cn   | 3     | 768    | 12   | 38.5M           |
+| Middle School Reading Comprehension                                 | Brian Shen | [bert-3L_cn-beta]                                      | cn   | 3     | 1024   | 16   | 61.0M           |
 | Chinese Wikipedia, other encyclopedias, news, questions and answers | Brian Shen | [bert_sansa_12L_cn]                                       | cn   | 12    | 768    | 12   | 102.3M          |
 | Chinese comments                                                    | Brian Shen | [bert_eddard_12L_cn_tf],[bert_eddard_12L_cn_pt]           | cn   | 12    | 768    | 12   | 102.3M          |
 | Chinese comments                                                    | Brian Shen | [bert_lyarra_12L_cn_tf],[bert_lyarra_12L_cn_pt]           | cn   | 12    | 768    | 12   | 105.1M          |
@@ -120,8 +120,8 @@ The following text shows an example of the generation of the full word Mask . No
 [chinese_L-12_H-768_A-12_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/chinese_L-12_H-768_A-12.tgz
 [bert_tywin_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_tywin_L-12_H-768_A-12_cn.zip
 [bert_tyrion_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/bert_tyrion_L-12_H-768_A-12_cn.zip
-[roberta-3L_cn-alpha]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-3_H-768_A-12_cn.zip
-[roberta-3L_cn-beta]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-3_H-1024_A-16_cn.zip
+[bert-3L_cn-alpha]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-3_H-768_A-12_cn.zip
+[bert-3L_cn-beta]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_L-3_H-1024_A-16_cn.zip
 [bert_sansa_12L_cn]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_sansa_L-12_H-768_A-12_cn.zip
 [bert_eddard_12L_cn_tf]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/tf1/roberta_eddard_L-12_H-768_A-12_cn.zip
 [bert_eddard_12L_cn_pt]: https://transformers-models.obs.cn-north-4.myhuaweicloud.com/bert/cn/pretrain/pt/roberta_eddard_L-12_H-768_A-12_cn.zip
